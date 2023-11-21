@@ -134,13 +134,13 @@
       "languageVersion": "2.14"
     },
     {
-      "name": "js_widgets",
+      "name": "mobile_common_widgets",
       "rootUri": "../",
       "packageUri": "lib/",
       "languageVersion": "2.18"
     }
   ],
-  "generated": "2023-11-21T05:55:54.685558Z",
+  "generated": "2023-11-21T07:05:40.228330Z",
   "generator": "pub",
   "generatorVersion": "2.18.4"
 }

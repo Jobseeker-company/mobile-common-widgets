@@ -1,7 +1,6 @@
-name: js_widgets
+name: mobile_common_widgets
 description: A new Flutter package project.
 version: 0.0.1
-homepage:
 
 environment:
   sdk: '>=2.18.4 <3.0.0'
