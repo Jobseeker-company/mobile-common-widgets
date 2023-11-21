@@ -1,4 +1,4 @@
-library js_widgets;
+library mobile_common_widgets;
 
 import 'package:flutter/material.dart';
 
