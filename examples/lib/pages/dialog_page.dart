@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_common_widgets/js_widgets.dart';
+import 'package:mobile_common_widgets/mobile_common_widgets.dart';
 
 import '../widgets/custom_button.dart';
 
@@ -20,9 +20,11 @@ class DialogPage extends StatelessWidget {
             children: <Widget>[
               CustomButton(
                 onPressed: () {
+                  // JSDialog
+
                   JSInfoDialog(
                     context,
-                    image: const Icon(
+                    content: const Icon(
                       Icons.warning,
                       size: 100,
                       color: Colors.red,
@@ -36,17 +38,19 @@ class DialogPage extends StatelessWidget {
               ),
               CustomButton(
                 onPressed: () {
-                  // ConfirmDialog(
-                  //   context,
-                  //   image: const Icon(
-                  //     Icons.warning,
-                  //     size: 100,
-                  //     color: Colors.red,
-                  //   ),
-                  //   bodyText: "Hey this is an info dialog example",
-                  //   buttonText: "Close",
-                  //   buttonColor: Colors.red,
-                  // ).show();                  
+                  JSConfirmDialog(
+                    context,
+                    content: const Icon(
+                      Icons.warning,
+                      size: 100,
+                      color: Colors.red,
+                    ),
+                    bodyText: "Hey this is an info dialog example",
+                    outlinedButtonText: "Close",
+                    buttonText: "Ok",
+                    buttonColor: Colors.red,
+                    outlinedButtonColor: Colors.red,
+                  ).show();
                 },
                 text: "Confirmation Dialog",
               ),
