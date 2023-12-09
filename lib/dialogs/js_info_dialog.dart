@@ -1,36 +1,37 @@
 import 'package:flutter/material.dart';
 import 'package:mobile_common_widgets/anims/animation.dart';
-import 'package:mobile_common_widgets/js_dialog.dart';
+import 'package:mobile_common_widgets/dialogs/js_dialog.dart';
 
-class JSConfirmDialog extends JSDialog {
+class JSInfoDialog extends JSDialog {
   final Widget content;
   final String bodyText;
   final String buttonText;
-  final Color buttonTextColor;
   final Color buttonColor;
-  final Color outlinedButtonColor;
-  final String outlinedButtonText;
-  final Color outlinedButtonTextColor;
+  final Color buttonTextColor;
   final EdgeInsets? padding;
   final Function()? onPressed;
-  final Function()? onOutlinedButtonPressed;
 
-  /// ![](https://github-production-user-asset-6210df.s3.amazonaws.com/58515206/289240761-703b4dae-02eb-4807-9f42-28ea8006bf72.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20231209%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20231209T062427Z&X-Amz-Expires=300&X-Amz-Signature=21620f3465b35e712fcbef3209fc410d0fc52bea171e9a17dfd71ccf6554c443&X-Amz-SignedHeaders=host&actor_id=58515206&key_id=0&repo_id=658545639)
-  const JSConfirmDialog(
+  /// ![](https://github-production-user-asset-6210df.s3.amazonaws.com/58515206/289015917-e531af67-39ca-4da9-a257-d201b5b22d71.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20231209%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20231209T053109Z&X-Amz-Expires=300&X-Amz-Signature=e9d22f91746c79032d5c19731d3667bf81371f2424d7d9edf5e1c3234dcf905f&X-Amz-SignedHeaders=host&actor_id=58515206&key_id=0&repo_id=658545639)
+  const JSInfoDialog(
     BuildContext context, {
+    bool barrierDismissible = true,
+    String? barrierLabel,
+    Color? barrierColor,
     AnimType animType = AnimType.scale,
     required this.content,
     required this.bodyText,
     required this.buttonText,
-    required this.outlinedButtonText,
     this.padding,
     this.onPressed,
-    this.onOutlinedButtonPressed,
-    this.buttonTextColor = Colors.white,
-    this.outlinedButtonTextColor = Colors.red,
     this.buttonColor = Colors.red,
-    this.outlinedButtonColor = Colors.red,
-  }) : super(context, animType: animType);
+    this.buttonTextColor = Colors.white,
+  }) : super(
+          context,
+          barrierDismissible: barrierDismissible,
+          barrierLabel: barrierLabel,
+          barrierColor: barrierColor,
+          animType: animType,
+        );
 
   @override
   Widget buildDialog() {
@@ -38,14 +39,10 @@ class JSConfirmDialog extends JSDialog {
       content: content,
       padding: padding,
       onPressed: onPressed,
-      onOutlinedButtonPressed: onOutlinedButtonPressed,
       bodyText: bodyText,
       buttonText: buttonText,
       buttonColor: buttonColor,
-      outlinedButtonColor: outlinedButtonColor,
-      outlinedButtonText: outlinedButtonText,
       buttonTextColor: buttonTextColor,
-      outlinedButtonTextColor: outlinedButtonTextColor,
     );
   }
 }
@@ -53,28 +50,19 @@ class JSConfirmDialog extends JSDialog {
 class _DialogWidget extends StatelessWidget {
   final EdgeInsets? padding;
   final Function()? onPressed;
-  final Function()? onOutlinedButtonPressed;
   final Widget content;
   final String buttonText;
-  final Color buttonTextColor;
-  final Color outlinedButtonColor;
-  final Color outlinedButtonTextColor;
-  final String outlinedButtonText;
   final String bodyText;
-
   final Color buttonColor;
+  final Color buttonTextColor;
   const _DialogWidget({
     this.padding,
     this.onPressed,
-    this.onOutlinedButtonPressed,
     required this.content,
     required this.bodyText,
     required this.buttonText,
-    required this.outlinedButtonText,
     required this.buttonColor,
-    required this.outlinedButtonColor,
     required this.buttonTextColor,
-    required this.outlinedButtonTextColor,
   });
 
   @override
@@ -102,7 +90,7 @@ class _DialogWidget extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
             const SizedBox(
-              height: 10.0,
+              height: 8.0,
             ),
             // button
             SizedBox(
@@ -120,31 +108,7 @@ class _DialogWidget extends StatelessWidget {
                       ?.copyWith(color: buttonTextColor),
                 ),
               ),
-            ),
-            const SizedBox(
-              height: 4.0,
-            ),
-            SizedBox(
-              width: double.infinity,
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: Colors.white,
-                  side: BorderSide(
-                    width: 1.0,
-                    color: outlinedButtonColor,
-                  ),
-                ),
-                onPressed:
-                    onOutlinedButtonPressed ?? () => Navigator.pop(context),
-                child: Text(
-                  outlinedButtonText,
-                  style: Theme.of(context)
-                      .textTheme
-                      .bodySmall
-                      ?.copyWith(color: outlinedButtonTextColor),
-                ),
-              ),
-            ),
+            )
           ],
         ),
       ),

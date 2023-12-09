@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'anims/animation.dart';
+import 'package:mobile_common_widgets/anims/animation.dart';
 
 abstract class JSDialog {
   final BuildContext context;
