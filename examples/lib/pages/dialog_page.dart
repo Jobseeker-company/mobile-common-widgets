@@ -20,8 +20,6 @@ class DialogPage extends StatelessWidget {
             children: <Widget>[
               CustomButton(
                 onPressed: () {
-                  // JSDialog
-
                   JSInfoDialog(
                     context,
                     content: const Icon(
@@ -45,11 +43,12 @@ class DialogPage extends StatelessWidget {
                       size: 100,
                       color: Colors.red,
                     ),
-                    bodyText: "Hey this is an info dialog example",
+                    bodyText: "Hey this is a confirmation dialog example",
                     outlinedButtonText: "Close",
                     buttonText: "Ok",
                     buttonColor: Colors.red,
-                    outlinedButtonColor: Colors.red,
+                    outlinedButtonTextColor: Colors.red,
+                    outlinedButtonColor: Colors.brown,
                   ).show();
                 },
                 text: "Confirmation Dialog",

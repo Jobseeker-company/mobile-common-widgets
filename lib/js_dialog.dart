@@ -5,9 +5,15 @@ import 'anims/animation.dart';
 abstract class JSDialog {
   final BuildContext context;
   final AnimType animType;
+  final bool? barrierDismissible;
+  final String? barrierLabel;
+  final Color? barrierColor;
 
   const JSDialog(
     this.context, {
+    this.barrierDismissible,
+    this.barrierLabel,
+    this.barrierColor,
     this.animType = AnimType.scale,
   });
 
@@ -53,6 +59,9 @@ abstract class JSDialog {
   Widget buildDialog();
 
   Future<dynamic> show() => showGeneralDialog(
+        barrierDismissible: barrierDismissible ?? true,
+        barrierLabel: barrierLabel ?? "",
+        barrierColor: barrierColor ?? const Color(0x80000000),
         context: context,
         transitionDuration: const Duration(milliseconds: 300),
         pageBuilder: (

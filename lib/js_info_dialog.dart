@@ -7,10 +7,16 @@ class JSInfoDialog extends JSDialog {
   final String bodyText;
   final String buttonText;
   final Color buttonColor;
+  final Color buttonTextColor;
   final EdgeInsets? padding;
   final Function()? onPressed;
+
+  /// ![](https://github-production-user-asset-6210df.s3.amazonaws.com/58515206/289015917-e531af67-39ca-4da9-a257-d201b5b22d71.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20231209%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20231209T053109Z&X-Amz-Expires=300&X-Amz-Signature=e9d22f91746c79032d5c19731d3667bf81371f2424d7d9edf5e1c3234dcf905f&X-Amz-SignedHeaders=host&actor_id=58515206&key_id=0&repo_id=658545639)
   const JSInfoDialog(
     BuildContext context, {
+    bool barrierDismissible = true,
+    String? barrierLabel,
+    Color? barrierColor,
     AnimType animType = AnimType.scale,
     required this.content,
     required this.bodyText,
@@ -18,7 +24,14 @@ class JSInfoDialog extends JSDialog {
     this.padding,
     this.onPressed,
     this.buttonColor = Colors.red,
-  }) : super(context, animType: animType);
+    this.buttonTextColor = Colors.white,
+  }) : super(
+          context,
+          barrierDismissible: barrierDismissible,
+          barrierLabel: barrierLabel,
+          barrierColor: barrierColor,
+          animType: animType,
+        );
 
   @override
   Widget buildDialog() {
@@ -29,6 +42,7 @@ class JSInfoDialog extends JSDialog {
       bodyText: bodyText,
       buttonText: buttonText,
       buttonColor: buttonColor,
+      buttonTextColor: buttonTextColor,
     );
   }
 }
@@ -39,8 +53,8 @@ class _DialogWidget extends StatelessWidget {
   final Widget content;
   final String buttonText;
   final String bodyText;
-
   final Color buttonColor;
+  final Color buttonTextColor;
   const _DialogWidget({
     this.padding,
     this.onPressed,
@@ -48,6 +62,7 @@ class _DialogWidget extends StatelessWidget {
     required this.bodyText,
     required this.buttonText,
     required this.buttonColor,
+    required this.buttonTextColor,
   });
 
   @override
@@ -72,6 +87,7 @@ class _DialogWidget extends StatelessWidget {
             Text(
               bodyText,
               style: Theme.of(context).textTheme.bodySmall,
+              textAlign: TextAlign.center,
             ),
             const SizedBox(
               height: 8.0,
@@ -80,13 +96,16 @@ class _DialogWidget extends StatelessWidget {
             SizedBox(
               width: double.infinity,
               child: ElevatedButton(
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: buttonColor,
+                ),
                 onPressed: onPressed ?? () => Navigator.pop(context),
                 child: Text(
                   buttonText,
                   style: Theme.of(context)
                       .textTheme
                       .bodySmall
-                      ?.copyWith(color: Colors.white),
+                      ?.copyWith(color: buttonTextColor),
                 ),
               ),
             )
