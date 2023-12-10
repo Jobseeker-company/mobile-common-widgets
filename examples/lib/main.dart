@@ -1,4 +1,5 @@
 import 'package:examples/pages/dialog_page.dart';
+import 'package:examples/pages/modal_bottom_sheet_page.dart';
 import 'package:flutter/material.dart';
 
 import 'widgets/custom_button.dart';
@@ -27,11 +28,18 @@ class MyApp extends StatelessWidget {
           ),
         ),
         textTheme: const TextTheme(
+          titleSmall: TextStyle(
+            fontFamily: 'Inter',
+            fontSize: 18,
+            height: 24 / 16,
+            fontWeight: FontWeight.w600,
+            color: Colors.black,
+          ),
           bodySmall: TextStyle(
             fontFamily: 'Inter',
-            fontSize: 17,
+            fontSize: 16,
             height: 17 / 16,
-            fontWeight: FontWeight.w500,
+            fontWeight: FontWeight.w400,
             color: Colors.black,
           ),
         ),
@@ -77,7 +85,14 @@ class _MyHomePageState extends State<MyHomePage> {
                 text: "Dialog",
               ),
               CustomButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const ModalBottomSheetPage(),
+                    ),
+                  );
+                },
                 text: "Modal Bottom Sheet",
               ),
               CustomButton(

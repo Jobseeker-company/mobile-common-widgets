@@ -29,12 +29,19 @@ class JSGeneralBottomSheet extends JSBottomSheet {
 
   @override
   Widget buildBottomSheet() {
-    // TODO: implement buildBottomSheet
-    throw UnimplementedError();
+    return _BottomSheetWidget(
+      padding: padding,
+      onPressed: onPressed,
+      content: content,
+      bodyText: bodyText,
+      buttonText: buttonText,
+      buttonColor: buttonColor,
+      buttonTextColor: buttonTextColor,
+    );
   }
 }
 
-class _DialogWidget extends StatelessWidget {
+class _BottomSheetWidget extends StatelessWidget {
   final EdgeInsets? padding;
   final Function()? onPressed;
   final Widget content;
@@ -42,7 +49,7 @@ class _DialogWidget extends StatelessWidget {
   final String bodyText;
   final Color buttonColor;
   final Color buttonTextColor;
-  const _DialogWidget({
+  const _BottomSheetWidget({
     this.padding,
     this.onPressed,
     required this.content,
@@ -54,50 +61,79 @@ class _DialogWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Dialog(
-      insetPadding: const EdgeInsets.symmetric(horizontal: 25),
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(20.0),
-      ),
-      child: Container(
-        padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 24),
-        width: double.infinity,
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            // content
-            content,
-            const SizedBox(
-              height: 8.0,
-            ),
-            // text
-            Text(
-              bodyText,
-              style: Theme.of(context).textTheme.bodySmall,
-              textAlign: TextAlign.center,
-            ),
-            const SizedBox(
-              height: 8.0,
-            ),
-            // button
-            SizedBox(
-              width: double.infinity,
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  backgroundColor: buttonColor,
-                ),
-                onPressed: onPressed ?? () => Navigator.pop(context),
-                child: Text(
-                  buttonText,
-                  style: Theme.of(context)
-                      .textTheme
-                      .bodySmall
-                      ?.copyWith(color: buttonTextColor),
-                ),
-              ),
-            )
-          ],
+    return Container(
+      padding: const EdgeInsets.symmetric(horizontal: 25.0),
+      decoration: const BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.vertical(
+          top: Radius.circular(25),
         ),
+      ),
+      height: 325,
+      child: Column(
+        children: [
+          const SizedBox(
+            height: 25.0,
+          ),
+          Container(
+            height: 4,
+            width: 150,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(25),
+              color: const Color(0xff535353),
+            ),
+          ),
+          const SizedBox(
+            height: 20.0,
+          ),
+          Expanded(
+            child: SingleChildScrollView(
+              child: Column(
+                children: [
+                  content,
+                  const SizedBox(
+                    height: 15.0,
+                  ),
+                  Text(
+                    "Title",
+                    style: Theme.of(context).textTheme.titleSmall,
+                  ),
+                  const SizedBox(
+                    height: 15.0,
+                  ),
+                  Text(
+                    "You will receive the newest job alert for *JobFunction* position",
+                    style: Theme.of(context).textTheme.bodySmall,
+                    textAlign: TextAlign.center,
+                  ),
+                  const SizedBox(
+                    height: 18.0,
+                  ),
+                  SizedBox(
+                    height: 41,
+                    width: double.infinity,
+                    child: ElevatedButton(
+                      style: ElevatedButton.styleFrom(
+                        backgroundColor: buttonColor,
+                      ),
+                      onPressed: onPressed ?? () => Navigator.pop(context),
+                      child: Text(
+                        buttonText,
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodySmall
+                            ?.copyWith(color: buttonTextColor),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 20.0,
+                  ),
+                ],
+              ),
+            ),
+          ),
+        ],
       ),
     );
   }

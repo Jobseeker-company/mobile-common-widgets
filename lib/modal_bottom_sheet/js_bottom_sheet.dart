@@ -23,7 +23,14 @@ abstract class JSBottomSheet {
         isDismissible: isDismissible ?? true,
         backgroundColor: backgroundColor,
         enableDrag: enableDrag ?? true,
-        shape: shape,
+        isScrollControlled: true,
+        shape: shape ??
+            const RoundedRectangleBorder(
+              borderRadius: BorderRadius.only(
+                topLeft: Radius.circular(25),
+                topRight: Radius.circular(25),
+              ),
+            ),
         context: context,
         builder: (context) {
           return buildBottomSheet();

@@ -90,11 +90,12 @@ class _DialogWidget extends StatelessWidget {
               textAlign: TextAlign.center,
             ),
             const SizedBox(
-              height: 8.0,
+              height: 12.0,
             ),
             // button
             SizedBox(
               width: double.infinity,
+              height: 41,
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
                   backgroundColor: buttonColor,
