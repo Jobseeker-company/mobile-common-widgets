@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mobile_common_widgets/mobile_common_widgets.dart';
 
@@ -21,16 +22,44 @@ class ModalBottomSheetPage extends StatelessWidget {
               CustomButton(
                 onPressed: () {
                   JSBareBottomSheet(context, children: [
-                    const Icon(
-                      Icons.twelve_mp,
-                      size: 100,
-                      color: Colors.red,
-                    ),
                     Text(
                       "This is a bare bottom sheet, add everything's your want to along the vertical axis",
                       style: Theme.of(context).textTheme.bodySmall,
                       textAlign: TextAlign.center,
                     ),
+                    const SizedBox(
+                      height: 20.0,
+                    ),
+                    DefaultBottomSheetItem(
+                      leading: const Icon(
+                        CupertinoIcons.link,
+                        size: 20,
+                        color: Color(0xFF777675),
+                      ),
+                      title: "Share vacancy",
+                      onPresssed: () {},
+                    ),
+                    const SizedBox(
+                      height: 5.0,
+                    ),
+                    DefaultBottomSheetItem(
+                      leading: const Icon(
+                        Icons.block,
+                        size: 20,
+                        color: Color(0xFF777675),
+                      ),
+                      title: "Block Vacancy",
+                      onPresssed: () {},
+                    ),
+                    DefaultBottomSheetItem(
+                      leading: const Icon(
+                        CupertinoIcons.flag,
+                        size: 20,
+                        color: Color(0xFF777675),
+                      ),
+                      title: "Report Company",
+                      onPresssed: () {},
+                    )
                   ]).show();
                 },
                 text: "Bare Bottom Sheet",
@@ -52,23 +81,8 @@ class ModalBottomSheetPage extends StatelessWidget {
                 text: "General Bottom Sheet",
               ),
               CustomButton(
-                onPressed: () {
-                  JSConfirmDialog(
-                    context,
-                    content: const Icon(
-                      Icons.warning,
-                      size: 100,
-                      color: Colors.red,
-                    ),
-                    bodyText: "Hey this is a confirmation dialog example",
-                    outlinedButtonText: "Close",
-                    buttonText: "Ok",
-                    buttonColor: Colors.red,
-                    outlinedButtonTextColor: Colors.red,
-                    outlinedButtonColor: Colors.brown,
-                  ).show();
-                },
-                text: "General Bottom Sheet 2",
+                onPressed: () {},
+                text: "Save Account Bottom Sheet",
               ),
             ],
           ),
