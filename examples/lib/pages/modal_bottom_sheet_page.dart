@@ -20,17 +20,18 @@ class ModalBottomSheetPage extends StatelessWidget {
             children: <Widget>[
               CustomButton(
                 onPressed: () {
-                  JSInfoDialog(
-                    context,
-                    content: const Icon(
-                      Icons.warning,
+                  JSBareBottomSheet(context, children: [
+                    const Icon(
+                      Icons.twelve_mp,
                       size: 100,
                       color: Colors.red,
                     ),
-                    bodyText: "Hey this is an info dialog example",
-                    buttonText: "Close",
-                    buttonColor: Colors.red,
-                  ).show();
+                    Text(
+                      "This is a bare bottom sheet, add everything's your want to along the vertical axis",
+                      style: Theme.of(context).textTheme.bodySmall,
+                      textAlign: TextAlign.center,
+                    ),
+                  ]).show();
                 },
                 text: "Bare Bottom Sheet",
               ),

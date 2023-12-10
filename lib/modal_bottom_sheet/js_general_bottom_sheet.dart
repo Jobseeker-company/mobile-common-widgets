@@ -8,7 +8,7 @@ class JSGeneralBottomSheet extends JSBottomSheet {
   final String buttonText;
   final Color buttonColor;
   final Color buttonTextColor;
-  final EdgeInsets? padding;
+  final double? height;
   final Function()? onPressed;
 
   /// ![](https://github-production-user-asset-6210df.s3.amazonaws.com/58515206/289015917-e531af67-39ca-4da9-a257-d201b5b22d71.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20231209%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20231209T053109Z&X-Amz-Expires=300&X-Amz-Signature=e9d22f91746c79032d5c19731d3667bf81371f2424d7d9edf5e1c3234dcf905f&X-Amz-SignedHeaders=host&actor_id=58515206&key_id=0&repo_id=658545639)
@@ -21,7 +21,7 @@ class JSGeneralBottomSheet extends JSBottomSheet {
     required this.content,
     required this.bodyText,
     required this.buttonText,
-    this.padding,
+    this.height,
     this.onPressed,
     this.buttonColor = Colors.red,
     this.buttonTextColor = Colors.white,
@@ -30,8 +30,8 @@ class JSGeneralBottomSheet extends JSBottomSheet {
   @override
   Widget buildBottomSheet() {
     return _BottomSheetWidget(
-      padding: padding,
       onPressed: onPressed,
+      height: height,
       content: content,
       bodyText: bodyText,
       buttonText: buttonText,
@@ -42,16 +42,16 @@ class JSGeneralBottomSheet extends JSBottomSheet {
 }
 
 class _BottomSheetWidget extends StatelessWidget {
-  final EdgeInsets? padding;
   final Function()? onPressed;
   final Widget content;
+  final double? height;
   final String buttonText;
   final String bodyText;
   final Color buttonColor;
   final Color buttonTextColor;
   const _BottomSheetWidget({
-    this.padding,
     this.onPressed,
+    this.height,
     required this.content,
     required this.bodyText,
     required this.buttonText,
@@ -69,7 +69,7 @@ class _BottomSheetWidget extends StatelessWidget {
           top: Radius.circular(25),
         ),
       ),
-      height: 325,
+      height: height ?? 325,
       child: Column(
         children: [
           const SizedBox(
