@@ -2,6 +2,62 @@
 
 A plugin to provide common widgets that being used by multiple jobseeker products. Every contributions is one step to make other developer life easier.
 
+## Installation
+
+1. Add mobile_common_widgets under [dependencies](https://dart.dev/tools/pub/dependencies) in your [pubspec.yaml](https://dart.dev/tools/pub/pubspec) :
+```
+dependencies:
+  .
+  .
+  .
+  mobile_common_widgets: 
+    git:
+      url: git@github.com:Jobseeker-company/mobile-common-widgets.git
+      ref: master
+```
+3. Run ```flutter pub get```
+
+## Usage
+
+```dart
+import 'package:mobile_common_widgets/mobile_common_widgets.dart';
+
+// show info dialog
+CustomButton(
+  onPressed: () {
+    JSInfoDialog(
+      context,
+      content: const Icon(
+        Icons.warning,
+        size: 100,
+        color: Colors.red,
+      ),
+      bodyText: "Hey this is an info dialog example",
+      buttonText: "Close",
+      buttonColor: Colors.red,
+    ).show();
+  },
+  text: "Info Dialog",
+);
+
+// show general bottom sheet
+CustomButton(
+  onPressed: () {
+    JSGeneralBottomSheet(
+      context,
+      content: const Icon(
+        Icons.warning,
+        size: 100,
+        color: Colors.red,
+      ),
+      bodyText: "Hey this is a general bottom sheet example",
+      buttonText: "Ok",
+      buttonColor: Colors.red,
+    ).show();
+  },
+  text: "Info Dialog",
+);
+```
 
 ## Contribute 
 
@@ -9,7 +65,7 @@ How to contribute to mobile common widgets :
 1. Choose your widget to be contributed. _Make sure the widget is being used by multiple products with more than 90% similarity._
 2. Add your widget to the relevant folder. For example, JSDialog should be placed inside dialogs widget. 
 3. Add the usage to the example folder. Similar to [2], the widget should be placed to the relevant page that accessed from the list of buttons in home page.
-4. Add a screenshot of your widget to the readme, in this [section]() and at top of the widget constructor (see bewlow example). 
+4. Add a screenshot of your widget to the readme, in this [section]() and at top of the widget constructor (see bewlow example).  [How to host image to url using github?](https://www.youtube.com/watch?v=qIaWozjDyPk)
 
 ```dart
   /// ![](url to your awesome widget)
