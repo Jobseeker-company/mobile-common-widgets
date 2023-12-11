@@ -5,7 +5,7 @@ class JSBareBottomSheet extends JSBottomSheet {
   final List<Widget> children;
   final double? height;
 
-  /// ![](https://github-production-user-asset-6210df.s3.amazonaws.com/58515206/289015917-e531af67-39ca-4da9-a257-d201b5b22d71.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20231209%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20231209T053109Z&X-Amz-Expires=300&X-Amz-Signature=e9d22f91746c79032d5c19731d3667bf81371f2424d7d9edf5e1c3234dcf905f&X-Amz-SignedHeaders=host&actor_id=58515206&key_id=0&repo_id=658545639)
+  /// ![](https://github-production-user-asset-6210df.s3.amazonaws.com/58515206/289458896-7d362b87-a76d-4281-80a3-9636695307f2.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20231211%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20231211T134601Z&X-Amz-Expires=300&X-Amz-Signature=4b1fefce4b8704213adb81f4ebe5bd87f8858d54d3638d9fd0c752416a6a56d3&X-Amz-SignedHeaders=host&actor_id=58515206&key_id=0&repo_id=658545639)
   const JSBareBottomSheet(
     BuildContext context, {
     required this.children,
