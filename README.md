@@ -24,8 +24,23 @@ How to contribute to mobile common widgets :
 
 ### JSInfoDialog
 
-<img src="https://github-production-user-asset-6210df.s3.amazonaws.com/58515206/289015917-e531af67-39ca-4da9-a257-d201b5b22d71.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20231209%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20231209T053109Z&X-Amz-Expires=300&X-Amz-Signature=e9d22f91746c79032d5c19731d3667bf81371f2424d7d9edf5e1c3234dcf905f&X-Amz-SignedHeaders=host&actor_id=58515206&key_id=0&repo_id=658545639" alt="" data-canonical-src="https://github-production-user-asset-6210df.s3.amazonaws.com/58515206/289015917-e531af67-39ca-4da9-a257-d201b5b22d71.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20231209%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20231209T053109Z&X-Amz-Expires=300&X-Amz-Signature=e9d22f91746c79032d5c19731d3667bf81371f2424d7d9edf5e1c3234dcf905f&X-Amz-SignedHeaders=host&actor_id=58515206&key_id=0&repo_id=658545639" width="400" height="280" />
+<img src="https://github.com/Jobseeker-company/mobile-b2c-app-reborn/assets/58515206/e531af67-39ca-4da9-a257-d201b5b22d71" alt="" data-canonical-src="https://github.com/Jobseeker-company/mobile-b2c-app-reborn/assets/58515206/e531af67-39ca-4da9-a257-d201b5b22d71" width="300" height="240" />
 
 ### JSConfirmDialog
 
-<img src="https://github-production-user-asset-6210df.s3.amazonaws.com/58515206/289240761-703b4dae-02eb-4807-9f42-28ea8006bf72.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20231209%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20231209T062427Z&X-Amz-Expires=300&X-Amz-Signature=21620f3465b35e712fcbef3209fc410d0fc52bea171e9a17dfd71ccf6554c443&X-Amz-SignedHeaders=host&actor_id=58515206&key_id=0&repo_id=658545639" alt="" data-canonical-src="https://github-production-user-asset-6210df.s3.amazonaws.com/58515206/289240761-703b4dae-02eb-4807-9f42-28ea8006bf72.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20231209%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20231209T062427Z&X-Amz-Expires=300&X-Amz-Signature=21620f3465b35e712fcbef3209fc410d0fc52bea171e9a17dfd71ccf6554c443&X-Amz-SignedHeaders=host&actor_id=58515206&key_id=0&repo_id=658545639" width="350" height="280" />
+<img src="https://github.com/Jobseeker-company/mobile-b2c-app-reborn/assets/58515206/9fd4da64-63fa-4832-a68e-b8f15c9e655a" alt="" data-canonical-src="https://github.com/Jobseeker-company/mobile-b2c-app-reborn/assets/58515206/9fd4da64-63fa-4832-a68e-b8f15c9e655a" width="300" height="240" />
+
+## Modal Bottom Sheet
+
+### JSBareBottomSheet
+
+<img src="https://github.com/Jobseeker-company/mobile-b2c-app-reborn/assets/58515206/7d362b87-a76d-4281-80a3-9636695307f2" alt="" data-canonical-src="https://github.com/Jobseeker-company/mobile-b2c-app-reborn/assets/58515206/7d362b87-a76d-4281-80a3-9636695307f2" width="300" height="240" />
+
+
+### JSGeneralBottomSheet
+
+<img src="https://github.com/Jobseeker-company/mobile-b2c-app-reborn/assets/58515206/626c481e-f348-495c-b6f7-6525de70aa35" alt="" data-canonical-src="https://github.com/Jobseeker-company/mobile-b2c-app-reborn/assets/58515206/626c481e-f348-495c-b6f7-6525de70aa35" width="300" height="240" />
+
+### DefaultBottomSheetItem
+
+<img src="https://github.com/Jobseeker-company/mobile-b2c-app-reborn/assets/58515206/9a767330-e739-40e5-b6b5-34d59b3847ba" alt="" data-canonical-src="https://github.com/Jobseeker-company/mobile-b2c-app-reborn/assets/58515206/9a767330-e739-40e5-b6b5-34d59b3847ba" width="300" height="50" />
