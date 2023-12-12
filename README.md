@@ -63,9 +63,10 @@ CustomButton(
 
 How to contribute to mobile common widgets : 
 1. Choose your widget to be contributed. _Make sure the widget is being used by multiple products with more than 90% similarity._
-2. Add your widget to the relevant folder. For example, JSDialog should be placed inside dialogs widget. 
-3. Add the usage to the example folder. Similar to [2], the widget should be placed to the relevant page that accessed from the list of buttons in home page.
-4. Add a screenshot of your widget to the readme, in this [section]() and at top of the widget constructor (see bewlow example).  [How to host image to url using github?](https://www.youtube.com/watch?v=qIaWozjDyPk)
+2. Add your widget to the relevant folder. For example, JSDialog should be placed inside dialogs widget.
+3. Add your widget file to barrel files, named as ```mobile_common_widgets.dart```.
+4. Add the usage to the example folder. Similar to [2], the widget should be placed to the relevant page that accessed from the list of buttons in home page.
+5. Add a screenshot of your widget to the readme, in this [section]() and at top of the widget constructor (see bewlow example).  [How to host image to url using github?](https://www.youtube.com/watch?v=qIaWozjDyPk)
 
 ```dart
   /// ![](url to your awesome widget)
