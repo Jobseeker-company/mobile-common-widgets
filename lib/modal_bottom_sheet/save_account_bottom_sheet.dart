@@ -1,10 +1,17 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:mobile_common_widgets/modal_bottom_sheet/helpers.dart';
+import '/core/enum.dart';
 import 'package:mobile_common_widgets/modal_bottom_sheet/js_bottom_sheet.dart';
 
 class SaveAccountBottomSheet extends JSBottomSheet {
   final String lang;
+  final Product product;
+  final Function() onSignInEmailPressed;
+  final Function() onSignInGmailPressed;
+  final Function() onSignInFacebookPressed;
+  final Function() onSignInApplePressed;
 
   /// ![](https://github-production-user-asset-6210df.s3.amazonaws.com/58515206/289551644-1358e1d3-9e38-4fa9-8a69-0b6ded8a6b73.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20231211%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20231211T134412Z&X-Amz-Expires=300&X-Amz-Signature=bb9fd8f7ae78e2c2bc0e676cdcf15c4e091d9b0e87770f92d10ee8abef4ca553&X-Amz-SignedHeaders=host&actor_id=58515206&key_id=0&repo_id=658545639)
   const SaveAccountBottomSheet(
@@ -13,20 +20,40 @@ class SaveAccountBottomSheet extends JSBottomSheet {
     String? barrierLabel,
     Color? barrierColor,
     this.lang = 'en',
+    required this.product,
+    required this.onSignInEmailPressed,
+    required this.onSignInGmailPressed,
+    required this.onSignInFacebookPressed,
+    required this.onSignInApplePressed,
   }) : super(context);
 
   @override
   Widget buildBottomSheet() {
     return _BottomSheetWidget(
       lang: lang,
+      product: product,
+      onSignInEmailPressed: onSignInEmailPressed,
+      onSignInGmailPressed: onSignInGmailPressed,
+      onSignInFacebookPressed: onSignInFacebookPressed,
+      onSignInApplePressed: onSignInApplePressed,
     );
   }
 }
 
 class _BottomSheetWidget extends StatelessWidget {
   final String lang;
+  final Product product;
+  final Function() onSignInEmailPressed;
+  final Function() onSignInGmailPressed;
+  final Function() onSignInFacebookPressed;
+  final Function() onSignInApplePressed;
   const _BottomSheetWidget({
     required this.lang,
+    required this.product,
+    required this.onSignInEmailPressed,
+    required this.onSignInGmailPressed,
+    required this.onSignInFacebookPressed,
+    required this.onSignInApplePressed,
   });
 
   @override
@@ -63,7 +90,9 @@ class _BottomSheetWidget extends StatelessWidget {
                 ),
               ),
               Image.asset(
-                "assets/jobseeker_app_sign_in.png",
+                (product == Product.app)
+                    ? "assets/jobseeker_app_sign_in.png"
+                    : "assets/jobseeker_partners_sign_in.png",
                 width: 240,
                 height: 75,
               ),
@@ -71,9 +100,10 @@ class _BottomSheetWidget extends StatelessWidget {
               Container(
                 margin: const EdgeInsets.symmetric(horizontal: 25),
                 child: Text(
-                  (lang == 'en')
-                      ? "Sign in first so that you can apply for a job, manage your account, check notifications and more"
-                      : "Masuk dulu untuk lamar kerja, ngatur akun, cek notifikasi, dan hal lainnya",
+                  (product == Product.app)
+                      ? ModalBottomSheetHelpers.getAppSignInEmailText(lang)
+                      : ModalBottomSheetHelpers.getPartnersSignInEmailText(
+                          lang),
                   textAlign: TextAlign.center,
                   style: Theme.of(context).textTheme.bodySmall?.copyWith(
                         height: 20 / 16,
@@ -95,7 +125,7 @@ class _BottomSheetWidget extends StatelessWidget {
                       color: Color(0xFF777675),
                     ),
                   ),
-                  onPressed: () {},
+                  onPressed: onSignInEmailPressed,
                   child: Row(
                     children: [
                       const Icon(
@@ -106,7 +136,9 @@ class _BottomSheetWidget extends StatelessWidget {
                         flex: 1,
                         child: Center(
                           child: Text(
-                            "Log in/Sign up with Email",
+                            (lang == 'en')
+                                ? "Log in/Sign up with Email"
+                                : "Masuk/Daftar dengan email",
                             style: Theme.of(context).textTheme.titleSmall,
                           ),
                         ),
@@ -132,7 +164,9 @@ class _BottomSheetWidget extends StatelessWidget {
                   Container(
                     margin: const EdgeInsets.symmetric(horizontal: 15),
                     child: Text(
-                      "Or continue with",
+                      (lang == "en")
+                          ? "or continue with"
+                          : "atau lanjutkan dengan",
                       style: Theme.of(context).textTheme.caption,
                     ),
                   ),
@@ -164,12 +198,12 @@ class _BottomSheetWidget extends StatelessWidget {
                           borderRadius: BorderRadius.circular(10),
                         ),
                       ),
+                      onPressed: onSignInGmailPressed,
                       child: Image.asset(
                         "assets/sign_in_google_icon.png",
                         width: 30,
                         height: 30,
                       ),
-                      onPressed: () {},
                     ),
                   ),
                   SizedBox(
@@ -183,12 +217,12 @@ class _BottomSheetWidget extends StatelessWidget {
                           borderRadius: BorderRadius.circular(10),
                         ),
                       ),
+                      onPressed: onSignInFacebookPressed,
                       child: Image.asset(
                         "assets/sign_in_facebook_icon.png",
                         width: 30,
                         height: 30,
                       ),
-                      onPressed: () {},
                     ),
                   ),
                   if (Platform.isIOS)
@@ -204,12 +238,12 @@ class _BottomSheetWidget extends StatelessWidget {
                             borderRadius: BorderRadius.circular(10),
                           ),
                         ),
+                        onPressed: onSignInApplePressed,
                         child: Image.asset(
                           "assets/sign_in_apple_icon.png",
                           width: 30,
                           height: 30,
                         ),
-                        onPressed: () {},
                       ),
                     ),
                 ],

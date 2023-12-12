@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:examples/widgets/custom_button.dart';
 import 'package:mobile_common_widgets/mobile_common_widgets.dart';
-
-import '../widgets/custom_button.dart';
 
 class DialogPage extends StatelessWidget {
   const DialogPage({super.key});

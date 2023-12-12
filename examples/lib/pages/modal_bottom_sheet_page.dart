@@ -1,9 +1,8 @@
+import 'package:examples/widgets/custom_button.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:mobile_common_widgets/mobile_common_widgets.dart';
 import 'package:mobile_common_widgets/modal_bottom_sheet/save_account_bottom_sheet.dart';
-
-import '../widgets/custom_button.dart';
 
 class ModalBottomSheetPage extends StatelessWidget {
   const ModalBottomSheetPage({super.key});
@@ -83,7 +82,15 @@ class ModalBottomSheetPage extends StatelessWidget {
               ),
               CustomButton(
                 onPressed: () {
-                  SaveAccountBottomSheet(context, lang: 'en').show();
+                  SaveAccountBottomSheet(
+                    context,
+                    lang: 'en',
+                    product: Product.app,
+                    onSignInEmailPressed: () {},
+                    onSignInGmailPressed: () {},
+                    onSignInFacebookPressed: () {},
+                    onSignInApplePressed: () {},
+                  ).show();
                 },
                 text: "Save Account Bottom Sheet",
               ),
