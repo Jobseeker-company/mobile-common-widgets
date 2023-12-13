@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
+import 'package:mobile_common_widgets/core/color_manager.dart';
 import 'package:mobile_common_widgets/core/font_family_constant.dart';
 
 class SavedAccountItem extends StatelessWidget {
@@ -34,7 +35,7 @@ class SavedAccountItem extends StatelessWidget {
         if (!isLastItem)
           Container(
             width: double.infinity,
-            color: const Color(0xFFE4007E),
+            color: ColorManager.primaryBlue700,
             height: 1,
           ),
         if (!isLastItem)

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_common_widgets/core/color_manager.dart';
+import 'package:mobile_common_widgets/core/text_style_manager.dart';
 import '/core/enum.dart';
 import 'helpers.dart';
 import 'js_bottom_sheet.dart';
@@ -82,15 +84,13 @@ class _BottomSheetWidget extends StatelessWidget {
             height: 16.0,
           ),
           Container(
-            margin: const EdgeInsets.symmetric(horizontal: 25),
+            margin: const EdgeInsets.symmetric(horizontal: 10),
             child: Text(
               (product == Product.app)
                   ? ModalBottomSheetHelpers.getAppSignInEmailText(lang)
                   : ModalBottomSheetHelpers.getPartnersSignInEmailText(lang),
               textAlign: TextAlign.center,
-              style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                    height: 20 / 16,
-                  ),
+              style: TextStyleManager.hierarchy2(fontSize: 14),
             ),
           ),
           const SizedBox(
@@ -103,15 +103,17 @@ class _BottomSheetWidget extends StatelessWidget {
           SizedBox(
             width: double.infinity,
             child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: (product == Product.app)
+                    ? ColorManager.primaryPink700
+                    : ColorManager.primaryBlue700,
+              ),
               onPressed: onSignInOtherAccountPressed,
               child: Padding(
                 padding: const EdgeInsets.symmetric(vertical: 14.0),
                 child: Text(
                   ModalBottomSheetHelpers.getSignInWithOtherAccText(lang),
-                  style: Theme.of(context)
-                      .textTheme
-                      .bodySmall
-                      ?.copyWith(color: Colors.white),
+                  style: TextStyleManager.bodyLarge(color: Colors.white),
                 ),
               ),
             ),

@@ -141,8 +141,8 @@ class ModalBottomSheetPage extends StatelessWidget {
                           ),
                         )
                         .toList(),
-                    lang: 'id',
-                    product: Product.partners,
+                    lang: 'en',
+                    product: Product.app,
                     onSignInOtherAccountPressed: () {},
                   ).show();
                 },
