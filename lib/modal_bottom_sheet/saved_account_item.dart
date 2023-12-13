@@ -3,12 +3,15 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:mobile_common_widgets/core/color_manager.dart';
 import 'package:mobile_common_widgets/core/font_family_constant.dart';
 
+import '/core/enum.dart';
+
 class SavedAccountItem extends StatelessWidget {
   final String imageUrl;
   final String name;
   final String lastActive;
   final bool isLastItem;
   final Widget trailing;
+  final Product product;
   final Function() onTap;
 
   const SavedAccountItem({
@@ -18,6 +21,7 @@ class SavedAccountItem extends StatelessWidget {
     required this.lastActive,
     required this.isLastItem,
     required this.trailing,
+    required this.product,
     required this.onTap,
   });
 
@@ -35,7 +39,9 @@ class SavedAccountItem extends StatelessWidget {
         if (!isLastItem)
           Container(
             width: double.infinity,
-            color: ColorManager.primaryBlue700,
+            color: (product == Product.app)
+                ? ColorManager.primaryPink700
+                : ColorManager.primaryBlue700,
             height: 1,
           ),
         if (!isLastItem)

@@ -121,11 +121,13 @@ class ModalBottomSheetPage extends StatelessWidget {
                       phone: "phone",
                     ),
                   ];
+                  const product = Product.partners;
                   JSSavedAccountBottomSheet(
                     context,
                     items: savedAccounts
                         .map(
                           (e) => SavedAccountItem(
+                            product: product,
                             imageUrl: e.photo ?? "",
                             name: e.fullName ?? "",
                             lastActive: e.lastActive ?? "",
@@ -142,7 +144,7 @@ class ModalBottomSheetPage extends StatelessWidget {
                         )
                         .toList(),
                     lang: 'en',
-                    product: Product.app,
+                    product: product,
                     onSignInOtherAccountPressed: () {},
                   ).show();
                 },
