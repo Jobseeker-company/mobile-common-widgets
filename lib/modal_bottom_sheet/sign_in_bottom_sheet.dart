@@ -1,11 +1,10 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:mobile_common_widgets/modal_bottom_sheet/helpers.dart';
 import '/core/enum.dart';
 import 'package:mobile_common_widgets/modal_bottom_sheet/js_bottom_sheet.dart';
+import 'dart:io';
 
-class SaveAccountBottomSheet extends JSBottomSheet {
+class SignInBottomSheet extends JSBottomSheet {
   final String lang;
   final Product product;
   final Function() onSignInEmailPressed;
@@ -14,7 +13,7 @@ class SaveAccountBottomSheet extends JSBottomSheet {
   final Function() onSignInApplePressed;
 
   /// ![](https://github-production-user-asset-6210df.s3.amazonaws.com/58515206/289551644-1358e1d3-9e38-4fa9-8a69-0b6ded8a6b73.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20231211%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20231211T134412Z&X-Amz-Expires=300&X-Amz-Signature=bb9fd8f7ae78e2c2bc0e676cdcf15c4e091d9b0e87770f92d10ee8abef4ca553&X-Amz-SignedHeaders=host&actor_id=58515206&key_id=0&repo_id=658545639)
-  const SaveAccountBottomSheet(
+  const SignInBottomSheet(
     BuildContext context, {
     bool barrierDismissible = true,
     String? barrierLabel,

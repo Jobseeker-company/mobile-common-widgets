@@ -102,7 +102,7 @@ How to contribute to mobile common widgets :
 
 <img src="https://github.com/Jobseeker-company/mobile-b2c-app-reborn/assets/58515206/9a767330-e739-40e5-b6b5-34d59b3847ba" alt="" data-canonical-src="https://github.com/Jobseeker-company/mobile-b2c-app-reborn/assets/58515206/9a767330-e739-40e5-b6b5-34d59b3847ba" width="300" height="50" />
 
-### SaveAccountBottomSheet
+### SignInBottomSheet
 
 <img src="https://github.com/Jobseeker-company/mobile-b2c-app-reborn/assets/58515206/1358e1d3-9e38-4fa9-8a69-0b6ded8a6b73" alt="" data-canonical-src="https://github.com/Jobseeker-company/mobile-b2c-app-reborn/assets/58515206/1358e1d3-9e38-4fa9-8a69-0b6ded8a6b73" width="300" height="350" />
 
