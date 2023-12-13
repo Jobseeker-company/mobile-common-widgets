@@ -2,6 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:mobile_common_widgets/core/color_extention.dart';
 import 'package:mobile_common_widgets/core/enum.dart';
+import 'package:mobile_common_widgets/core/text_style_manager.dart';
 
 class JsNotificationListTile extends StatelessWidget {
   final Function() onTap;
@@ -79,25 +80,24 @@ class JsNotificationListTile extends StatelessWidget {
       title: Text.rich(
         TextSpan(
           text: notifTitle,
-          style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                fontWeight: FontWeight.w600,
-                height: 1.4,
-              ),
+          style: TextStyleManager.bodySmall(
+            fontWeight: FontWeight.w600,
+            height: 1.4,
+          ),
           children: [
             TextSpan(
               text: ' $notifContent',
-              style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                    height: 1.4,
-                  ),
+              style: TextStyleManager.bodySmall(
+                height: 1.4,
+              ),
             ),
             if (date != null)
               TextSpan(
                 text: '\n$date',
-                style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                      fontSize: 12,
-                      height: 2,
-                      color: HexColor.fromHex('#777675'),
-                    ),
+                style: TextStyleManager.caption1(
+                  height: 2,
+                  color: HexColor.fromHex('#777675'),
+                ),
               ),
           ],
         ),
