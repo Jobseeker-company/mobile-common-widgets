@@ -57,7 +57,7 @@ abstract class JSDialog {
 
   Widget buildDialog();
 
-  Future<dynamic> show() => showGeneralDialog(
+  Future<T?> show<T>() => showGeneralDialog<T?>(
         barrierDismissible: barrierDismissible ?? true,
         barrierLabel: barrierLabel ?? "",
         barrierColor: barrierColor ?? const Color(0x80000000),

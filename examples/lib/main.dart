@@ -1,8 +1,8 @@
-import 'package:examples/pages/dialog_page.dart';
+import 'package:examples/pages/list_tile_page.dart';
 import 'package:examples/pages/modal_bottom_sheet_page.dart';
+import 'package:examples/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
-
-import 'widgets/custom_button.dart';
+import 'pages/dialog_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -107,7 +107,14 @@ class _MyHomePageState extends State<MyHomePage> {
                 text: "Text Form Fields",
               ),
               CustomButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const ListTilePage(),
+                    ),
+                  );
+                },
                 text: "List Tile",
               ),
               CustomButton(

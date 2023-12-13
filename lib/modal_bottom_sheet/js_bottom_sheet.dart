@@ -19,7 +19,7 @@ abstract class JSBottomSheet {
 
   Widget buildBottomSheet();
 
-  Future<dynamic> show() => showModalBottomSheet(
+  Future<T?> show<T>() => showModalBottomSheet<T?>(
         isDismissible: isDismissible ?? true,
         backgroundColor: backgroundColor,
         enableDrag: enableDrag ?? true,
