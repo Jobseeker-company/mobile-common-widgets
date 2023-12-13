@@ -12,6 +12,9 @@ dependencies:
   # A flutter library to show images from the internet and keep them in the cache directory.
   cached_network_image: ^3.2.3
 
+  # A flutter library to show images from the internet and keep them in the cache directory.
+  cached_network_image: ^3.2.3        
+
 dev_dependencies:
   flutter_test:
     sdk: flutter

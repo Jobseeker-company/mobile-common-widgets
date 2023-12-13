@@ -12,4 +12,11 @@ abstract class ModalBottomSheetHelpers {
     }
     return "Masuk dulu untuk rekrut, ngatur akun, cek notifikasi, dan hal lainnya";
   }
+
+  static String getSignInWithOtherAccText(String lang) {
+    if (lang == 'en') {
+      return "Sign in with other account";
+    }
+    return "Login dengan akun yang lain";
+  }
 }
