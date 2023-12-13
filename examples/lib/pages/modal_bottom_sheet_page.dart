@@ -84,7 +84,7 @@ class ModalBottomSheetPage extends StatelessWidget {
                   JSSignInBottomSheet(
                     context,
                     lang: 'en',
-                    product: Product.app,
+                    product: Product.partners,
                     onSignInEmailPressed: () {},
                     onSignInGmailPressed: () {},
                     onSignInFacebookPressed: () {},

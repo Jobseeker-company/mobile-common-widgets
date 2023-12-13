@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_common_widgets/core/color_manager.dart';
 import 'package:mobile_common_widgets/modal_bottom_sheet/divider_with_label.dart';
 import 'package:mobile_common_widgets/modal_bottom_sheet/helpers.dart';
+import '/core/text_style_manager.dart';
 import '/core/enum.dart';
 import 'package:mobile_common_widgets/modal_bottom_sheet/js_bottom_sheet.dart';
 import 'dart:io';
@@ -101,9 +103,7 @@ class _BottomSheetWidget extends StatelessWidget {
                   ? ModalBottomSheetHelpers.getAppSignInEmailText(lang)
                   : ModalBottomSheetHelpers.getPartnersSignInEmailText(lang),
               textAlign: TextAlign.center,
-              style: Theme.of(context).textTheme.bodySmall?.copyWith(
-                    height: 20 / 16,
-                  ),
+              style: TextStyleManager.hierarchy2(color: ColorManager.grey),
             ),
           ),
           const SizedBox(height: 30),
@@ -135,7 +135,8 @@ class _BottomSheetWidget extends StatelessWidget {
                         (lang == 'en')
                             ? "Log in/Sign up with Email"
                             : "Masuk/Daftar dengan email",
-                        style: Theme.of(context).textTheme.titleSmall,
+                        style: TextStyleManager.title3()
+                            .copyWith(fontWeight: FontWeight.w600),
                       ),
                     ),
                   ),

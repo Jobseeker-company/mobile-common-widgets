@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '/core/text_style_manager.dart';
+
 class DividerWithLabel extends StatelessWidget {
   const DividerWithLabel({
     Key? key,
@@ -25,7 +27,7 @@ class DividerWithLabel extends StatelessWidget {
           margin: const EdgeInsets.symmetric(horizontal: 15),
           child: Text(
             label,
-            style: Theme.of(context).textTheme.caption,
+            style: TextStyleManager.caption1(),
           ),
         ),
         const Expanded(
