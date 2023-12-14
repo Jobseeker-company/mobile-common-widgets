@@ -11,7 +11,7 @@ class JsNotificationListTile extends StatelessWidget {
   final String notifTitle;
   final String notifContent;
   final String logo;
-  final DateTime? date;
+  final String? date;
   const JsNotificationListTile({
     super.key,
     required this.onTap,
