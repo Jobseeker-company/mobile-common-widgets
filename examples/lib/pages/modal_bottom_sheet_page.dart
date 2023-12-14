@@ -81,10 +81,10 @@ class ModalBottomSheetPage extends StatelessWidget {
               ),
               CustomButton(
                 onPressed: () {
-                  SignInBottomSheet(
+                  JSSignInBottomSheet(
                     context,
                     lang: 'en',
-                    product: Product.app,
+                    product: Product.partners,
                     onSignInEmailPressed: () {},
                     onSignInGmailPressed: () {},
                     onSignInFacebookPressed: () {},
@@ -93,10 +93,99 @@ class ModalBottomSheetPage extends StatelessWidget {
                 },
                 text: "Sign in Bottom Sheet",
               ),
+              CustomButton(
+                onPressed: () {
+                  const savedAccounts = [
+                    UserInfo(
+                      fullName: "Alvin Setiadi",
+                      photo:
+                          "https://assets-global.website-files.com/5fba23eb8789c3c7fcfb5f31/622fa2005a5fabed64659616_607d8ea5221240c8618ea3d1_Kirk-Du-Plessis-Avatar%20(1).png",
+                      lastActive: "15 Desember",
+                      email: "email",
+                      phone: "phone",
+                    ),
+                    UserInfo(
+                      fullName: "Rudi Setiadi",
+                      photo:
+                          "https://assets-global.website-files.com/5fba23eb8789c3c7fcfb5f31/622fa2005a5fabed64659616_607d8ea5221240c8618ea3d1_Kirk-Du-Plessis-Avatar%20(1).png",
+                      lastActive: "15 Desember",
+                      email: "email",
+                      phone: "phone",
+                    ),
+                    UserInfo(
+                      fullName: "Rudi Setiadi",
+                      photo:
+                          "https://assets-global.website-files.com/5fba23eb8789c3c7fcfb5f31/622fa2005a5fabed64659616_607d8ea5221240c8618ea3d1_Kirk-Du-Plessis-Avatar%20(1).png",
+                      lastActive: "15 Desember",
+                      email: "email",
+                      phone: "phone",
+                    ),
+                  ];
+                  const product = Product.partners;
+                  JSSavedAccountBottomSheet(
+                    context,
+                    items: savedAccounts
+                        .map(
+                          (e) => SavedAccountItem(
+                            product: product,
+                            imageUrl: e.photo ?? "",
+                            name: e.fullName ?? "",
+                            lastActive: e.lastActive ?? "",
+                            isLastItem: false,
+                            trailing: IconButton(
+                              onPressed: () {},
+                              icon: const Icon(
+                                Icons.delete_outline,
+                                size: 30,
+                              ),
+                            ),
+                            onTap: () {},
+                          ),
+                        )
+                        .toList(),
+                    lang: 'en',
+                    product: product,
+                    onSignInOtherAccountPressed: () {},
+                  ).show();
+                },
+                text: "Saved Account Bottom Sheet",
+                style: Theme.of(context)
+                    .textTheme
+                    .headline5
+                    ?.copyWith(color: Colors.white, fontSize: 22),
+              ),
+              CustomButton(
+                onPressed: () {},
+                text: "Date Picker Bottom Sheet",
+              ),
             ],
           ),
         ),
       ),
     );
   }
+}
+
+class UserInfo {
+  final String? fullName;
+  final String? photo;
+  final String? email;
+  final String? phone;
+  final String? lastActive;
+
+  const UserInfo({
+    required this.fullName,
+    required this.photo,
+    required this.email,
+    required this.phone,
+    this.lastActive,
+  });
+
+  static UserInfo defaultValue() => UserInfo(
+        fullName: "",
+        photo: "",
+        email: "",
+        phone: "",
+        lastActive: DateTime.now().toIso8601String(),
+      );
 }
