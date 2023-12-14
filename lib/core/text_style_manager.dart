@@ -43,6 +43,7 @@ class TextStyleManager {
       decoration: decoration,
       decorationStyle: decorationStyle,
       decorationThickness: decorationThickness,
+      package: "mobile_common_widgets",
     );
   }
 
@@ -89,6 +90,7 @@ class TextStyleManager {
       decorationStyle: decorationStyle,
       decorationThickness: decorationThickness,
       overflow: overflow,
+      package: "mobile_common_widgets",
     );
   }
 
@@ -135,6 +137,7 @@ class TextStyleManager {
       decorationStyle: decorationStyle,
       decorationThickness: decorationThickness,
       overflow: overflow,
+      package: "mobile_common_widgets",
     );
   }
 
@@ -178,6 +181,7 @@ class TextStyleManager {
       decoration: decoration,
       decorationStyle: decorationStyle,
       decorationThickness: decorationThickness,
+      package: "mobile_common_widgets",
     );
   }
 
@@ -221,6 +225,7 @@ class TextStyleManager {
       decoration: decoration,
       decorationStyle: decorationStyle,
       decorationThickness: decorationThickness,
+      package: "mobile_common_widgets",
     );
   }
 
@@ -264,6 +269,7 @@ class TextStyleManager {
       decoration: decoration,
       decorationStyle: decorationStyle,
       decorationThickness: decorationThickness,
+      package: "mobile_common_widgets",
     );
   }
 
@@ -306,6 +312,7 @@ class TextStyleManager {
       decoration: decoration,
       decorationStyle: decorationStyle,
       decorationThickness: decorationThickness,
+      package: "mobile_common_widgets",
     );
   }
 
@@ -349,6 +356,7 @@ class TextStyleManager {
       decoration: decoration,
       decorationStyle: decorationStyle,
       decorationThickness: decorationThickness,
+      package: "mobile_common_widgets",
     );
   }
 
@@ -392,6 +400,7 @@ class TextStyleManager {
       decoration: decoration,
       decorationStyle: decorationStyle,
       decorationThickness: decorationThickness,
+      package: "mobile_common_widgets",
     );
   }
 
@@ -435,6 +444,7 @@ class TextStyleManager {
       decoration: decoration,
       decorationStyle: decorationStyle,
       decorationThickness: decorationThickness,
+      package: "mobile_common_widgets",
     );
   }
 
@@ -478,6 +488,7 @@ class TextStyleManager {
       decoration: decoration,
       decorationStyle: decorationStyle,
       decorationThickness: decorationThickness,
+      package: "mobile_common_widgets",
     );
   }
 
@@ -521,6 +532,7 @@ class TextStyleManager {
       decoration: decoration,
       decorationStyle: decorationStyle,
       decorationThickness: decorationThickness,
+      package: "mobile_common_widgets",
     );
   }
 
@@ -565,6 +577,7 @@ class TextStyleManager {
       decoration: decoration,
       decorationStyle: decorationStyle,
       decorationThickness: decorationThickness,
+      package: "mobile_common_widgets",
     );
   }
 
@@ -609,6 +622,7 @@ class TextStyleManager {
       decoration: decoration,
       decorationStyle: decorationStyle,
       decorationThickness: decorationThickness,
+      package: "mobile_common_widgets",
     );
   }
 
@@ -652,6 +666,7 @@ class TextStyleManager {
       decoration: decoration,
       decorationStyle: decorationStyle,
       decorationThickness: decorationThickness,
+      package: "mobile_common_widgets",
     );
   }
 }
