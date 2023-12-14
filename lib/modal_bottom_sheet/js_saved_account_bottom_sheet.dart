@@ -79,6 +79,7 @@ class _BottomSheetWidget extends StatelessWidget {
                 : "assets/jobseeker_partners_sign_in.png",
             width: 240,
             height: 75,
+            package: "mobile_common_widgets",
           ),
           const SizedBox(
             height: 16.0,

@@ -34,6 +34,7 @@ class MyApp extends StatelessWidget {
             height: 24 / 16,
             fontWeight: FontWeight.w600,
             color: Colors.black,
+            package: "mobile_common_widgets",
           ),
           labelMedium: TextStyle(
             fontFamily: 'Inter',
@@ -41,6 +42,7 @@ class MyApp extends StatelessWidget {
             height: 17 / 16,
             fontWeight: FontWeight.w500,
             color: Colors.black,
+            package: "mobile_common_widgets",
           ),
           bodySmall: TextStyle(
             fontFamily: 'Inter',
@@ -48,6 +50,7 @@ class MyApp extends StatelessWidget {
             height: 17 / 16,
             fontWeight: FontWeight.w400,
             color: Colors.black,
+            package: "mobile_common_widgets",
           ),
         ),
       ),
