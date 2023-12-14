@@ -7,7 +7,42 @@ import '/core/enum.dart';
 import 'package:mobile_common_widgets/modal_bottom_sheet/js_bottom_sheet.dart';
 import 'dart:io';
 
-class JSSignInBottomSheet extends JSBottomSheet {
+// class JSSignInBottomSheet extends JSBottomSheet {
+//   final String lang;
+//   final Product product;
+//   final Function() onSignInEmailPressed;
+//   final Function() onSignInGmailPressed;
+//   final Function() onSignInFacebookPressed;
+//   final Function() onSignInApplePressed;
+
+//   /// ![](https://github-production-user-asset-6210df.s3.amazonaws.com/58515206/289551644-1358e1d3-9e38-4fa9-8a69-0b6ded8a6b73.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20231211%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20231211T134412Z&X-Amz-Expires=300&X-Amz-Signature=bb9fd8f7ae78e2c2bc0e676cdcf15c4e091d9b0e87770f92d10ee8abef4ca553&X-Amz-SignedHeaders=host&actor_id=58515206&key_id=0&repo_id=658545639)
+//   const JSSignInBottomSheet(
+//     BuildContext context, {
+//     bool barrierDismissible = true,
+//     String? barrierLabel,
+//     Color? barrierColor,
+//     this.lang = 'en',
+//     required this.product,
+//     required this.onSignInEmailPressed,
+//     required this.onSignInGmailPressed,
+//     required this.onSignInFacebookPressed,
+//     required this.onSignInApplePressed,
+//   }) : super(context);
+
+//   @override
+//   Widget buildBottomSheet() {
+//     return _BottomSheetWidget(
+//       lang: lang,
+//       product: product,
+//       onSignInEmailPressed: onSignInEmailPressed,
+//       onSignInGmailPressed: onSignInGmailPressed,
+//       onSignInFacebookPressed: onSignInFacebookPressed,
+//       onSignInApplePressed: onSignInApplePressed,
+//     );
+//   }
+// }
+
+class JSSignInBottomSheet extends StatelessWidget {
   final String lang;
   final Product product;
   final Function() onSignInEmailPressed;
@@ -16,40 +51,8 @@ class JSSignInBottomSheet extends JSBottomSheet {
   final Function() onSignInApplePressed;
 
   /// ![](https://github-production-user-asset-6210df.s3.amazonaws.com/58515206/289551644-1358e1d3-9e38-4fa9-8a69-0b6ded8a6b73.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20231211%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20231211T134412Z&X-Amz-Expires=300&X-Amz-Signature=bb9fd8f7ae78e2c2bc0e676cdcf15c4e091d9b0e87770f92d10ee8abef4ca553&X-Amz-SignedHeaders=host&actor_id=58515206&key_id=0&repo_id=658545639)
-  const JSSignInBottomSheet(
-    BuildContext context, {
-    bool barrierDismissible = true,
-    String? barrierLabel,
-    Color? barrierColor,
-    this.lang = 'en',
-    required this.product,
-    required this.onSignInEmailPressed,
-    required this.onSignInGmailPressed,
-    required this.onSignInFacebookPressed,
-    required this.onSignInApplePressed,
-  }) : super(context);
-
-  @override
-  Widget buildBottomSheet() {
-    return _BottomSheetWidget(
-      lang: lang,
-      product: product,
-      onSignInEmailPressed: onSignInEmailPressed,
-      onSignInGmailPressed: onSignInGmailPressed,
-      onSignInFacebookPressed: onSignInFacebookPressed,
-      onSignInApplePressed: onSignInApplePressed,
-    );
-  }
-}
-
-class _BottomSheetWidget extends StatelessWidget {
-  final String lang;
-  final Product product;
-  final Function() onSignInEmailPressed;
-  final Function() onSignInGmailPressed;
-  final Function() onSignInFacebookPressed;
-  final Function() onSignInApplePressed;
-  const _BottomSheetWidget({
+  const JSSignInBottomSheet({
+    super.key,
     required this.lang,
     required this.product,
     required this.onSignInEmailPressed,

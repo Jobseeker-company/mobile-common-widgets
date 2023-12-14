@@ -6,38 +6,39 @@ import 'helpers.dart';
 import 'js_bottom_sheet.dart';
 import 'saved_account_item.dart';
 
-class JSSavedAccountBottomSheet extends JSBottomSheet {
-  final String lang;
-  final Product product;
-  final List<SavedAccountItem> items;
-  final Function() onSignInOtherAccountPressed;
-  const JSSavedAccountBottomSheet(
-    BuildContext context, {
-    bool barrierDismissible = true,
-    String? barrierLabel,
-    Color? barrierColor,
-    this.lang = 'en',
-    required this.product,
-    required this.items,
-    required this.onSignInOtherAccountPressed,
-  }) : super(context);
-  @override
-  Widget buildBottomSheet() {
-    return _BottomSheetWidget(
-      lang: lang,
-      product: product,
-      items: items,
-      onSignInOtherAccountPressed: onSignInOtherAccountPressed,
-    );
-  }
-}
+// class JSSavedAccountBottomSheet extends JSBottomSheet {
+//   final String lang;
+//   final Product product;
+//   final List<SavedAccountItem> items;
+//   final Function() onSignInOtherAccountPressed;
+//   const JSSavedAccountBottomSheet(
+//     BuildContext context, {
+//     bool barrierDismissible = true,
+//     String? barrierLabel,
+//     Color? barrierColor,
+//     this.lang = 'en',
+//     required this.product,
+//     required this.items,
+//     required this.onSignInOtherAccountPressed,
+//   }) : super(context);
+//   @override
+//   Widget buildBottomSheet() {
+//     return _BottomSheetWidget(
+//       lang: lang,
+//       product: product,
+//       items: items,
+//       onSignInOtherAccountPressed: onSignInOtherAccountPressed,
+//     );
+//   }
+// }
 
-class _BottomSheetWidget extends StatelessWidget {
+class JSSavedAccountBottomSheet extends StatelessWidget {
   final String lang;
   final Product product;
   final List<SavedAccountItem> items;
   final Function() onSignInOtherAccountPressed;
-  const _BottomSheetWidget({
+  const JSSavedAccountBottomSheet({
+    super.key,
     required this.lang,
     required this.product,
     required this.items,

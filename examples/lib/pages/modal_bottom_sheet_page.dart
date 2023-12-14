@@ -82,15 +82,27 @@ class ModalBottomSheetPage extends StatelessWidget {
               ),
               CustomButton(
                 onPressed: () {
-                  JSSignInBottomSheet(
-                    context,
-                    lang: 'en',
-                    product: Product.partners,
-                    onSignInEmailPressed: () {},
-                    onSignInGmailPressed: () {},
-                    onSignInFacebookPressed: () {},
-                    onSignInApplePressed: () {},
-                  ).show();
+                  showModalBottomSheet(
+                    context: context,
+                    isScrollControlled: true,
+                    backgroundColor: Colors.transparent,
+                    shape: const RoundedRectangleBorder(
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(25),
+                        topRight: Radius.circular(25),
+                      ),
+                    ),
+                    builder: (context) {
+                      return JSSignInBottomSheet(
+                        lang: 'en',
+                        product: Product.app,
+                        onSignInEmailPressed: () {},
+                        onSignInGmailPressed: () {},
+                        onSignInFacebookPressed: () {},
+                        onSignInApplePressed: () {},
+                      );
+                    },
+                  );
                 },
                 text: "Sign in Bottom Sheet",
               ),
@@ -123,31 +135,43 @@ class ModalBottomSheetPage extends StatelessWidget {
                     ),
                   ];
                   const product = Product.partners;
-                  JSSavedAccountBottomSheet(
-                    context,
-                    items: savedAccounts
-                        .map(
-                          (e) => SavedAccountItem(
-                            product: product,
-                            imageUrl: e.photo ?? "",
-                            name: e.fullName ?? "",
-                            lastActive: e.lastActive ?? "",
-                            isLastItem: false,
-                            trailing: IconButton(
-                              onPressed: () {},
-                              icon: const Icon(
-                                Icons.delete_outline,
-                                size: 30,
+                  showModalBottomSheet(
+                    context: context,
+                    isScrollControlled: true,
+                    backgroundColor: Colors.transparent,
+                    shape: const RoundedRectangleBorder(
+                      borderRadius: BorderRadius.only(
+                        topLeft: Radius.circular(25),
+                        topRight: Radius.circular(25),
+                      ),
+                    ),
+                    builder: (context) {
+                      return JSSavedAccountBottomSheet(
+                        items: savedAccounts
+                            .map(
+                              (e) => SavedAccountItem(
+                                product: product,
+                                imageUrl: e.photo ?? "",
+                                name: e.fullName ?? "",
+                                lastActive: e.lastActive ?? "",
+                                isLastItem: false,
+                                trailing: IconButton(
+                                  onPressed: () {},
+                                  icon: const Icon(
+                                    Icons.delete_outline,
+                                    size: 30,
+                                  ),
+                                ),
+                                onTap: () {},
                               ),
-                            ),
-                            onTap: () {},
-                          ),
-                        )
-                        .toList(),
-                    lang: 'en',
-                    product: product,
-                    onSignInOtherAccountPressed: () {},
-                  ).show();
+                            )
+                            .toList(),
+                        lang: 'en',
+                        product: product,
+                        onSignInOtherAccountPressed: () {},
+                      );
+                    },
+                  );
                 },
                 text: "Saved Account Bottom Sheet",
                 style: Theme.of(context)
