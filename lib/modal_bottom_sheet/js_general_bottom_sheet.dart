@@ -1,11 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_common_widgets/core/color_manager.dart';
+import 'package:mobile_common_widgets/core/enum.dart';
+import 'package:mobile_common_widgets/core/text_style_manager.dart';
 import 'package:mobile_common_widgets/modal_bottom_sheet/js_bottom_sheet.dart';
 
 class JSGeneralBottomSheet extends JSBottomSheet {
+  final Product product;
   final Widget content;
+  final String titleText;
   final String bodyText;
   final String buttonText;
-  final Color buttonColor;
   final Color buttonTextColor;
   final double? height;
   final Function()? onPressed;
@@ -16,12 +20,13 @@ class JSGeneralBottomSheet extends JSBottomSheet {
     bool barrierDismissible = true,
     String? barrierLabel,
     Color? barrierColor,
+    required this.product,
     required this.content,
     required this.bodyText,
+    required this.titleText,
     required this.buttonText,
     this.height,
     this.onPressed,
-    this.buttonColor = Colors.red,
     this.buttonTextColor = Colors.white,
   }) : super(context);
 
@@ -32,28 +37,31 @@ class JSGeneralBottomSheet extends JSBottomSheet {
       height: height,
       content: content,
       bodyText: bodyText,
+      titleText: titleText,
       buttonText: buttonText,
-      buttonColor: buttonColor,
       buttonTextColor: buttonTextColor,
+      product: product,
     );
   }
 }
 
 class _BottomSheetWidget extends StatelessWidget {
+  final Product product;
   final Function()? onPressed;
   final Widget content;
   final double? height;
   final String buttonText;
   final String bodyText;
-  final Color buttonColor;
+  final String titleText;
   final Color buttonTextColor;
   const _BottomSheetWidget({
     this.onPressed,
     this.height,
+    required this.product,
     required this.content,
     required this.bodyText,
     required this.buttonText,
-    required this.buttonColor,
+    required this.titleText,
     required this.buttonTextColor,
   });
 
@@ -93,15 +101,15 @@ class _BottomSheetWidget extends StatelessWidget {
                     height: 15.0,
                   ),
                   Text(
-                    "Title",
-                    style: Theme.of(context).textTheme.titleSmall,
+                    titleText,
+                    style: TextStyleManager.title3(),
                   ),
                   const SizedBox(
                     height: 15.0,
                   ),
                   Text(
-                    "You will receive the newest job alert for *JobFunction* position",
-                    style: Theme.of(context).textTheme.bodySmall,
+                    bodyText,
+                    style: TextStyleManager.bodyLarge(),
                     textAlign: TextAlign.center,
                   ),
                   const SizedBox(
@@ -112,15 +120,14 @@ class _BottomSheetWidget extends StatelessWidget {
                     width: double.infinity,
                     child: ElevatedButton(
                       style: ElevatedButton.styleFrom(
-                        backgroundColor: buttonColor,
+                        backgroundColor: (product == Product.app)
+                            ? ColorManager.primaryPink700
+                            : ColorManager.primaryBlue700,
                       ),
                       onPressed: onPressed ?? () => Navigator.pop(context),
                       child: Text(
                         buttonText,
-                        style: Theme.of(context)
-                            .textTheme
-                            .bodySmall
-                            ?.copyWith(color: buttonTextColor),
+                        style: TextStyleManager.bodyLarge(color: Colors.white),
                       ),
                     ),
                   ),

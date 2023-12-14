@@ -67,14 +67,15 @@ class ModalBottomSheetPage extends StatelessWidget {
                 onPressed: () {
                   JSGeneralBottomSheet(
                     context,
+                    product: Product.app,
                     content: const Icon(
                       Icons.warning,
                       size: 100,
                       color: Colors.red,
                     ),
-                    bodyText: "Hey this is a general bottom sheet example",
+                    titleText: "Ulala",
+                    bodyText: "Burung merpati terbang tinggi, wah baik sekali",
                     buttonText: "Ok",
-                    buttonColor: Colors.red,
                   ).show();
                 },
                 text: "General Bottom Sheet",

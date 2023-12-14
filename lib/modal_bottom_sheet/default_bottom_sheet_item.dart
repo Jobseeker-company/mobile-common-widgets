@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import '/core/text_style_manager.dart';
+
 class DefaultBottomSheetItem extends StatelessWidget {
   final Widget leading;
   final String title;
@@ -17,26 +19,27 @@ class DefaultBottomSheetItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-        style: ElevatedButton.styleFrom(
-          backgroundColor: const Color(0xFFF5F8F9),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(10),
-          ),
-          padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 12),
-          elevation: 0.0,
+      style: ElevatedButton.styleFrom(
+        backgroundColor: const Color(0xFFF5F8F9),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.circular(10),
         ),
-        onPressed: onPresssed,
-        child: Row(
-          children: [
-            leading,
-            const SizedBox(
-              width: 12,
-            ),
-            Text(
-              title,
-              style: Theme.of(context).textTheme.labelMedium,
-            ),
-          ],
-        ));
+        padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 12),
+        elevation: 0.0,
+      ),
+      onPressed: onPresssed,
+      child: Row(
+        children: [
+          leading,
+          const SizedBox(
+            width: 12,
+          ),
+          Text(
+            title,
+            style: TextStyleManager.labelMedium(),
+          ),
+        ],
+      ),
+    );
   }
 }
