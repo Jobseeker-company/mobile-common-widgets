@@ -1,3 +1,6 @@
+import 'package:examples/pages/chat_list_tile_page.dart';
+import 'package:examples/pages/notif_list_tile_page.dart';
+import 'package:examples/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
 import 'package:mobile_common_widgets/core/enum.dart';
 import 'package:mobile_common_widgets/list_tile/js_notification_list_tile.dart';
@@ -9,41 +12,39 @@ class ListTilePage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Modal Bottom Sheet"),
+        title: const Text("List Tile"),
       ),
-      body: Column(
-        children: [
-          JsNotificationListTile(
-            onTap: () {},
-            product: Product.app,
-            isRead: false,
-            notifTitle: 'notifTitle',
-            notifContent:
-                'notifContent make a a random pargraf amake a random paragraf make a random paragraf',
-            logo:
-                'https://cdn.discordapp.com/attachments/856786757516918784/1152763696142090280/istockphoto-537289161-612x612.jpeg?ex=65877bda&is=657506da&hm=5d1eda32f581e831689c025b4441666883365de09000eb5a5dbae31cfa117e39&',
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: <Widget>[
+              CustomButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const ChatListTilePage(),
+                    ),
+                  );
+                },
+                text: "Chat List Tile",
+              ),
+              CustomButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const NotificationListTilePage(),
+                    ),
+                  );
+                },
+                text: "Notification List Tile",
+              ),
+            ],
           ),
-          JsNotificationListTile(
-            onTap: () {},
-            product: Product.app,
-            isRead: true,
-            notifTitle: 'notifTitle',
-            notifContent:
-                'notifContent make a a random pargraf amake a random paragraf make a random paragraf notifContent make a a random pargraf amake a random paragraf make a random paragraf',
-            logo:
-                'https://cdn.discordapp.com/attachments/856786757516918784/1152763696142090280/istockphoto-537289161-612x612.jpeg?ex=65877bda&is=657506da&hm=5d1eda32f581e831689c025b4441666883365de09000eb5a5dbae31cfa117e39&',
-          ),
-          JsNotificationListTile(
-            onTap: () {},
-            product: Product.app,
-            isRead: false,
-            notifTitle: 'notifTitle',
-            notifContent:
-                'notifContent make a a random pargraf amake a random paragraf make a random paragraf notifContent make a a random pargraf amake a random paragraf make a random paragraf',
-            logo:
-                'https://cdn.discordapp.com/attachments/856786757516918784/1152763696142090280/istockphoto-537289161-612x612.jpeg?ex=65877bda&is=657506da&hm=5d1eda32f581e831689c025b4441666883365de09000eb5a5dbae31cfa117e39&',
-          )
-        ],
+        ),
       ),
     );
   }
