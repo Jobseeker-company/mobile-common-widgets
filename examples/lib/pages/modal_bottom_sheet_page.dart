@@ -147,6 +147,7 @@ class ModalBottomSheetPage extends StatelessWidget {
                     ),
                     builder: (context) {
                       return JSSavedAccountBottomSheet(
+                        onClosePressed: () => Navigator.pop(context),
                         items: savedAccounts
                             .map(
                               (e) => SavedAccountItem(
