@@ -10,11 +10,13 @@ class JSSavedAccountBottomSheet extends StatelessWidget {
   final Product product;
   final List<SavedAccountItem> items;
   final Function() onSignInOtherAccountPressed;
+  final Function() onClosePressed;
   const JSSavedAccountBottomSheet({
     super.key,
     required this.lang,
     required this.product,
     required this.items,
+    required this.onClosePressed,
     required this.onSignInOtherAccountPressed,
   });
   @override
@@ -41,9 +43,7 @@ class JSSavedAccountBottomSheet extends StatelessWidget {
             alignment: Alignment.topRight,
             child: InkWell(
               borderRadius: BorderRadius.circular(50),
-              onTap: () {
-                Navigator.pop(context);
-              },
+              onTap: onClosePressed,
               child: const Icon(Icons.close),
             ),
           ),
