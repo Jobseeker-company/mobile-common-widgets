@@ -106,6 +106,17 @@ class _MyHomePageState extends State<MyHomePage> {
                 text: "Modal Bottom Sheet",
               ),
               CustomButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const ModalBottomSheetPage(),
+                    ),
+                  );
+                },
+                text: "Buttons",
+              ),
+              CustomButton(
                 onPressed: () {},
                 text: "Text Form Fields",
               ),
