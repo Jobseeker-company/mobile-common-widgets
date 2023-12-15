@@ -1,47 +1,22 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_common_widgets/core/color_manager.dart';
+import 'package:mobile_common_widgets/buttons/js_rounded_pink_button.dart';
 import 'package:mobile_common_widgets/core/text_style_manager.dart';
 import '/core/enum.dart';
 import 'helpers.dart';
-import 'js_bottom_sheet.dart';
 import 'saved_account_item.dart';
-
-// class JSSavedAccountBottomSheet extends JSBottomSheet {
-//   final String lang;
-//   final Product product;
-//   final List<SavedAccountItem> items;
-//   final Function() onSignInOtherAccountPressed;
-//   const JSSavedAccountBottomSheet(
-//     BuildContext context, {
-//     bool barrierDismissible = true,
-//     String? barrierLabel,
-//     Color? barrierColor,
-//     this.lang = 'en',
-//     required this.product,
-//     required this.items,
-//     required this.onSignInOtherAccountPressed,
-//   }) : super(context);
-//   @override
-//   Widget buildBottomSheet() {
-//     return _BottomSheetWidget(
-//       lang: lang,
-//       product: product,
-//       items: items,
-//       onSignInOtherAccountPressed: onSignInOtherAccountPressed,
-//     );
-//   }
-// }
 
 class JSSavedAccountBottomSheet extends StatelessWidget {
   final String lang;
   final Product product;
   final List<SavedAccountItem> items;
   final Function() onSignInOtherAccountPressed;
+  final Function() onClosePressed;
   const JSSavedAccountBottomSheet({
     super.key,
     required this.lang,
     required this.product,
     required this.items,
+    required this.onClosePressed,
     required this.onSignInOtherAccountPressed,
   });
   @override
@@ -68,9 +43,7 @@ class JSSavedAccountBottomSheet extends StatelessWidget {
             alignment: Alignment.topRight,
             child: InkWell(
               borderRadius: BorderRadius.circular(50),
-              onTap: () {
-                Navigator.pop(context);
-              },
+              onTap: onClosePressed,
               child: const Icon(Icons.close),
             ),
           ),
@@ -104,20 +77,10 @@ class JSSavedAccountBottomSheet extends StatelessWidget {
           ),
           SizedBox(
             width: double.infinity,
-            child: ElevatedButton(
-              style: ElevatedButton.styleFrom(
-                backgroundColor: (product == Product.app)
-                    ? ColorManager.primaryPink700
-                    : ColorManager.primaryBlue700,
-              ),
+            child: JSRoundedButton(
               onPressed: onSignInOtherAccountPressed,
-              child: Padding(
-                padding: const EdgeInsets.symmetric(vertical: 14.0),
-                child: Text(
-                  ModalBottomSheetHelpers.getSignInWithOtherAccText(lang),
-                  style: TextStyleManager.bodyLarge(color: Colors.white),
-                ),
-              ),
+              text: ModalBottomSheetHelpers.getSignInWithOtherAccText(lang),
+              product: product,
             ),
           ),
           const SizedBox(

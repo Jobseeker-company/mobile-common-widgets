@@ -134,7 +134,7 @@ class ModalBottomSheetPage extends StatelessWidget {
                       phone: "phone",
                     ),
                   ];
-                  const product = Product.partners;
+                  const product = Product.app;
                   showModalBottomSheet(
                     context: context,
                     isScrollControlled: true,
@@ -147,6 +147,7 @@ class ModalBottomSheetPage extends StatelessWidget {
                     ),
                     builder: (context) {
                       return JSSavedAccountBottomSheet(
+                        onClosePressed: () => Navigator.pop(context),
                         items: savedAccounts
                             .map(
                               (e) => SavedAccountItem(

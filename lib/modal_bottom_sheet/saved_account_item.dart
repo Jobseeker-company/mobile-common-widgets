@@ -3,6 +3,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:mobile_common_widgets/core/color_manager.dart';
 import 'package:mobile_common_widgets/core/font_family_constant.dart';
 
+import '../core/text_style_manager.dart';
 import '/core/enum.dart';
 
 class SavedAccountItem extends StatelessWidget {
@@ -96,19 +97,15 @@ class _ListTile extends StatelessWidget {
       ),
       title: Text(
         name,
-        style: Theme.of(context).textTheme.bodySmall?.copyWith(
-              fontSize: 20,
-              fontFamily: FontFamilyConstant.robotto,
-            ),
+        style: TextStyleManager.mainText(
+          fontWeight: FontWeight.normal,
+        ),
         overflow: TextOverflow.clip,
         maxLines: 1,
       ),
       subtitle: Text(
         lastActive,
-        style: Theme.of(context).textTheme.bodySmall?.copyWith(
-              fontSize: 15,
-              fontFamily: FontFamilyConstant.robotto,
-            ),
+        style: TextStyleManager.mainText(fontSize: 15),
         overflow: TextOverflow.clip,
         maxLines: 1,
       ),
