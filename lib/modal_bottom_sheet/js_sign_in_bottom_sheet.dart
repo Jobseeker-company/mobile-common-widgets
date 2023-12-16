@@ -1,10 +1,13 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
-import 'package:mobile_common_widgets/core/color_manager.dart';
-import 'package:mobile_common_widgets/modal_bottom_sheet/divider_with_label.dart';
-import 'package:mobile_common_widgets/modal_bottom_sheet/helpers.dart';
+
+import '/core/color_manager.dart';
 import '/core/text_style_manager.dart';
 import '/core/enum.dart';
-import 'dart:io';
+
+import '/modal_bottom_sheet/divider_with_label.dart';
+import '/modal_bottom_sheet/helpers.dart';
 
 class JSSignInBottomSheet extends StatelessWidget {
   final String lang;

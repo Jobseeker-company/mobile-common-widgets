@@ -1,8 +1,9 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:mobile_common_widgets/core/asset_manager.dart';
-import 'package:mobile_common_widgets/core/color_manager.dart';
-import 'package:mobile_common_widgets/core/text_style_manager.dart';
+import 'package:cached_network_image/cached_network_image.dart';
+
+import '/core/asset_manager.dart';
+import '/core/color_manager.dart';
+import '/core/text_style_manager.dart';
 
 class JSChatListTile extends StatelessWidget {
   final Function() onTap;

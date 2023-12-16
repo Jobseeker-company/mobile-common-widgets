@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:mobile_common_widgets/core/color_manager.dart';
-import 'package:mobile_common_widgets/core/font_family_constant.dart';
 
-import '../core/text_style_manager.dart';
+import '/core/color_manager.dart';
+import '/core/text_style_manager.dart';
 import '/core/enum.dart';
 
 class SavedAccountItem extends StatelessWidget {

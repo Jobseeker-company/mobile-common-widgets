@@ -3,6 +3,7 @@ export 'modal_bottom_sheet/js_general_bottom_sheet.dart';
 export 'modal_bottom_sheet/js_bare_bottom_sheet.dart';
 export 'modal_bottom_sheet/js_sign_in_bottom_sheet.dart';
 export 'modal_bottom_sheet/js_saved_account_bottom_sheet.dart';
+export 'list_tile/js_notification_list_tile.dart';
 export 'modal_bottom_sheet/saved_account_item.dart';
 export 'dialogs/js_info_dialog.dart';
 export 'dialogs/js_confirm_dialog.dart';

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_common_widgets/anims/animation.dart';
-import 'package:mobile_common_widgets/dialogs/js_dialog.dart';
+
+import '/anims/animation.dart';
+import '/dialogs/js_dialog.dart';
 
 class JSConfirmDialog extends JSDialog {
   final Widget content;

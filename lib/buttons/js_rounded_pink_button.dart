@@ -1,8 +1,8 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:flutter/material.dart';
-import 'package:mobile_common_widgets/core/color_manager.dart';
+import 'package:mobile_common_widgets/mobile_common_widgets.dart';
+
+import '/core/color_manager.dart';
 import '/core/enum.dart';
-import '/core/button_style_manager.dart';
 import '/core/text_style_manager.dart';
 
 class JSRoundedButton extends StatelessWidget {

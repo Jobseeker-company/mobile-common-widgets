@@ -1,8 +1,9 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
-import 'package:mobile_common_widgets/core/color_extention.dart';
-import 'package:mobile_common_widgets/core/enum.dart';
-import 'package:mobile_common_widgets/core/text_style_manager.dart';
+import 'package:cached_network_image/cached_network_image.dart';
+
+import '/core/color_extention.dart';
+import '/core/enum.dart';
+import '/core/text_style_manager.dart';
 
 class JsNotificationListTile extends StatelessWidget {
   final Function() onTap;

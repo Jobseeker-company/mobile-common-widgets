@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_common_widgets/buttons/js_rounded_pink_button.dart';
-import 'package:mobile_common_widgets/core/text_style_manager.dart';
+
+import '/core/text_style_manager.dart';
 import '/core/enum.dart';
+import '/buttons/js_rounded_pink_button.dart';
+
 import 'helpers.dart';
 import 'saved_account_item.dart';
 

@@ -1,9 +1,9 @@
-import 'package:examples/pages/chat_list_tile_page.dart';
-import 'package:examples/pages/notif_list_tile_page.dart';
-import 'package:examples/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
-import 'package:mobile_common_widgets/core/enum.dart';
-import 'package:mobile_common_widgets/list_tile/js_notification_list_tile.dart';
+
+import 'chat_list_tile_page.dart';
+import 'notif_list_tile_page.dart';
+
+import '/widgets/custom_button.dart';
 
 class ListTilePage extends StatelessWidget {
   const ListTilePage({super.key});

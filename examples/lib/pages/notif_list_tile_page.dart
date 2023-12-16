@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_common_widgets/core/enum.dart';
-import 'package:mobile_common_widgets/list_tile/js_notification_list_tile.dart';
+import 'package:mobile_common_widgets/mobile_common_widgets.dart';
 
 class NotificationListTilePage extends StatelessWidget {
   const NotificationListTilePage({super.key});

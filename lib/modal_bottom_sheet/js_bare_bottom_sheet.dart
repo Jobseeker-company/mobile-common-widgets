@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_common_widgets/modal_bottom_sheet/js_bottom_sheet.dart';
+import '/modal_bottom_sheet/js_bottom_sheet.dart';
 
 class JSBareBottomSheet extends JSBottomSheet {
   final List<Widget> children;

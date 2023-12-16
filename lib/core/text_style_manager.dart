@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_common_widgets/core/font_family_constant.dart';
+import '/core/font_family_constant.dart';
 
 class TextStyleManager {
   static TextStyle largeTitle({

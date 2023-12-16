@@ -1,7 +1,8 @@
-import 'package:examples/widgets/custom_button.dart';
-import 'package:mobile_common_widgets/mobile_common_widgets.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:mobile_common_widgets/mobile_common_widgets.dart';
+
+import '/widgets/custom_button.dart';
 
 class ModalBottomSheetPage extends StatelessWidget {
   const ModalBottomSheetPage({super.key});

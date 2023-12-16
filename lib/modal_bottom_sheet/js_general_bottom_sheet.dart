@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_common_widgets/core/color_manager.dart';
-import 'package:mobile_common_widgets/core/enum.dart';
-import 'package:mobile_common_widgets/core/text_style_manager.dart';
-import 'package:mobile_common_widgets/modal_bottom_sheet/js_bottom_sheet.dart';
+
+import '/core/color_manager.dart';
+import '/core/enum.dart';
+import '/core/text_style_manager.dart';
+
+import '/modal_bottom_sheet/js_bottom_sheet.dart';
 
 class JSGeneralBottomSheet extends JSBottomSheet {
   final Product product;
