@@ -82,6 +82,7 @@ class JSSavedAccountBottomSheet extends StatelessWidget {
             child: JSRoundedButton(
               onPressed: onSignInOtherAccountPressed,
               text: ModalBottomSheetHelpers.getSignInWithOtherAccText(lang),
+              product: product,
             ),
           ),
           const SizedBox(
