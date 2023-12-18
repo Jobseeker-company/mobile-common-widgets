@@ -1,12 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:mobile_common_widgets/mobile_common_widgets.dart';
-
 import '/core/color_manager.dart';
-import '/core/enum.dart';
 import '/core/text_style_manager.dart';
 
 class JSRoundedButton extends StatelessWidget {
-  final Product product;
+  // final Product product;
   final void Function()? onPressed;
   final String text;
   final TextStyle? textStyle;
@@ -16,7 +13,7 @@ class JSRoundedButton extends StatelessWidget {
   final bool isLoading;
   const JSRoundedButton({
     Key? key,
-    required this.product,
+    // required this.product,
     required this.onPressed,
     required this.text,
     this.textStyle,
@@ -36,9 +33,7 @@ class JSRoundedButton extends StatelessWidget {
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(
           padding: const EdgeInsets.symmetric(vertical: 15),
-          backgroundColor: (product == Product.app)
-              ? ColorManager.primaryPink700
-              : ColorManager.primaryBlue700,
+          backgroundColor: ColorManager.primaryButtonColor,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10),
           ),

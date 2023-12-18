@@ -19,6 +19,7 @@ class ColorManager {
   static Color secondaryGrey = HexColor.fromHex('#B9B9B9');
   static Color green = HexColor.fromHex('#49A35B');
   static Color red = HexColor.fromHex('#DC4C44');
+  static Color primaryButtonColor = HexColor.fromHex('#E4007E');
 }
 
 extension HexColor on Color {
