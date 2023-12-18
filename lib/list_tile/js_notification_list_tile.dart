@@ -102,7 +102,7 @@ class JsNotificationListTile extends StatelessWidget {
               ),
           ],
         ),
-        style: Theme.of(context).textTheme.bodySmall,
+        // style: Theme.of(context).textTheme.bodySmall,
       ),
     );
   }
