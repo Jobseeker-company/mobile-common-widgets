@@ -36,9 +36,7 @@ class JSRoundedButton extends StatelessWidget {
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(
           padding: const EdgeInsets.symmetric(vertical: 15),
-          backgroundColor: (product == Product.app)
-              ? ColorManager.primaryPink700
-              : ColorManager.primaryBlue700,
+          backgroundColor: Theme.of(context).colorScheme.primary,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.circular(10),
           ),
