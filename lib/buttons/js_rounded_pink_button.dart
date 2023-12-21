@@ -9,7 +9,7 @@ class JSDefaultColorButton extends StatelessWidget {
   final double? height;
   final EdgeInsetsGeometry? margin;
   final bool isLoading;
-  final bool isOutlined;
+  final bool? isOutlined;
   final Color? outlinedColor;
   const JSDefaultColorButton({
     Key? key,
@@ -26,6 +26,10 @@ class JSDefaultColorButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    bool thisOutlined = false;
+    if (isOutlined != null) {
+      thisOutlined = isOutlined!;
+    }
     return Container(
       margin: margin,
       width: width,
@@ -34,12 +38,12 @@ class JSDefaultColorButton extends StatelessWidget {
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(
           padding: const EdgeInsets.symmetric(vertical: 15),
-          backgroundColor: isOutlined
+          backgroundColor: thisOutlined
               ? outlinedColor == Colors.white
                   ? Colors.grey.withOpacity(0.5)
                   : Colors.white
               : null,
-          side: isOutlined
+          side: thisOutlined
               ? BorderSide(
                   width: 1.0,
                   color: outlinedColor ?? Theme.of(context).primaryColor)
@@ -51,7 +55,7 @@ class JSDefaultColorButton extends StatelessWidget {
                 text,
                 style: textStyle ??
                     TextStyleManager.bodyLarge(
-                      color: isOutlined
+                      color: thisOutlined
                           ? outlinedColor ?? Theme.of(context).primaryColor
                           : Colors.white,
                     ),
