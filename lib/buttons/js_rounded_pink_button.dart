@@ -37,7 +37,6 @@ class JSDefaultColorButton extends StatelessWidget {
       child: ElevatedButton(
         onPressed: onPressed,
         style: ElevatedButton.styleFrom(
-          padding: const EdgeInsets.symmetric(vertical: 15),
           backgroundColor: thisOutlined
               ? outlinedColor == Colors.white
                   ? Colors.grey.withOpacity(0.5)
