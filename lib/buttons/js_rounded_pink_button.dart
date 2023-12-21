@@ -20,7 +20,7 @@ class JSDefaultColorButton extends StatelessWidget {
     this.height,
     this.margin,
     this.isLoading = false,
-    required this.isOutlined,
+    this.isOutlined,
     this.outlinedColor,
   }) : super(key: key);
 
