@@ -79,7 +79,7 @@ class JSSavedAccountBottomSheet extends StatelessWidget {
           ),
           SizedBox(
             width: double.infinity,
-            child: JSDefaultButton(
+            child: JSDefaultColorButton(
               onPressed: onSignInOtherAccountPressed,
               text: ModalBottomSheetHelpers.getSignInWithOtherAccText(lang),
               isOutlined: false,
