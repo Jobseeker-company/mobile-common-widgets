@@ -51,8 +51,13 @@ class JSDefaultColorButton extends StatelessWidget {
         ),
         child: isLoading
             ? Center(
+                child: SizedBox(
+                height: 15,
+                width: 15,
                 child: CircularProgressIndicator(
-                color: Theme.of(context).primaryColor,
+                  strokeWidth: 2,
+                  color: Theme.of(context).primaryColor,
+                ),
               ))
             : Text(
                 text,
