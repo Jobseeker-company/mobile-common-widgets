@@ -56,7 +56,9 @@ class JSDefaultColorButton extends StatelessWidget {
                 width: 15,
                 child: CircularProgressIndicator(
                   strokeWidth: 2,
-                  color: Theme.of(context).primaryColor,
+                  color: thisOutlined
+                      ? Theme.of(context).primaryColor
+                      : Colors.white,
                 ),
               ))
             : Text(
