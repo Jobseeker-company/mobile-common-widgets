@@ -50,7 +50,10 @@ class JSDefaultColorButton extends StatelessWidget {
               : null,
         ),
         child: isLoading
-            ? const Center(child: CircularProgressIndicator.adaptive())
+            ? Center(
+                child: CircularProgressIndicator(
+                color: Theme.of(context).primaryColor,
+              ))
             : Text(
                 text,
                 style: textStyle ??
