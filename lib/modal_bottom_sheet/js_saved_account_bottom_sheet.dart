@@ -78,7 +78,7 @@ class JSSavedAccountBottomSheet extends StatelessWidget {
             height: 16.0,
           ),
           SizedBox(
-            height: 50,
+            height: 44,
             width: double.infinity,
             child: JSDefaultColorButton(
               onPressed: onSignInOtherAccountPressed,
