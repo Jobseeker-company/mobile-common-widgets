@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_common_widgets/core/color_manager.dart';
 
 import '/core/text_style_manager.dart';
 import '/core/enum.dart';
-import '/buttons/js_rounded_pink_button.dart';
 
 import 'helpers.dart';
 import 'saved_account_item.dart';
@@ -80,12 +80,33 @@ class JSSavedAccountBottomSheet extends StatelessWidget {
           SizedBox(
             height: 50,
             width: double.infinity,
-            child: JSDefaultColorButton(
-              onPressed: onSignInOtherAccountPressed,
-              text: ModalBottomSheetHelpers.getSignInWithOtherAccText(lang),
-              isOutlined: false,
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                backgroundColor: (product == Product.app)
+                    ? ColorManager.primaryPink700
+                    : ColorManager.primaryBlue700,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10),
+                ),
+              ),
+              onPressed: () {},
+              child: Text(
+                ModalBottomSheetHelpers.getSignInWithOtherAccText(lang),
+                style: TextStyleManager.bodyLarge(
+                  color: Colors.white,
+                ),
+              ),
             ),
           ),
+          // SizedBox(
+          //   height: 50,
+          //   width: double.infinity,
+          //   child: JSDefaultColorButton(
+          //     onPressed: onSignInOtherAccountPressed,
+          //     text: ModalBottomSheetHelpers.getSignInWithOtherAccText(lang),
+          //     isOutlined: false,
+          //   ),
+          // ),
           const SizedBox(
             height: 10.0,
           ),

@@ -135,7 +135,7 @@ class ModalBottomSheetPage extends StatelessWidget {
                       phone: "phone",
                     ),
                   ];
-                  const product = Product.app;
+                  const product = Product.partners;
                   showModalBottomSheet(
                     context: context,
                     isScrollControlled: true,
