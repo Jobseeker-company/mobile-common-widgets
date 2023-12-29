@@ -89,7 +89,7 @@ class JSSavedAccountBottomSheet extends StatelessWidget {
                   borderRadius: BorderRadius.circular(10),
                 ),
               ),
-              onPressed: () {},
+              onPressed: onSignInOtherAccountPressed,
               child: Text(
                 ModalBottomSheetHelpers.getSignInWithOtherAccText(lang),
                 style: TextStyleManager.bodyLarge(
@@ -98,15 +98,6 @@ class JSSavedAccountBottomSheet extends StatelessWidget {
               ),
             ),
           ),
-          // SizedBox(
-          //   height: 50,
-          //   width: double.infinity,
-          //   child: JSDefaultColorButton(
-          //     onPressed: onSignInOtherAccountPressed,
-          //     text: ModalBottomSheetHelpers.getSignInWithOtherAccText(lang),
-          //     isOutlined: false,
-          //   ),
-          // ),
           const SizedBox(
             height: 10.0,
           ),
