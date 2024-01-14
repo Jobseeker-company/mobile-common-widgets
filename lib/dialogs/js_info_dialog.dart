@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '../core/text_style_manager.dart';
 import '/anims/animation.dart';
 import '/dialogs/js_dialog.dart';
 
@@ -86,7 +87,7 @@ class _DialogWidget extends StatelessWidget {
             // text
             Text(
               bodyText,
-              style: Theme.of(context).textTheme.bodySmall,
+              style: TextStyleManager.bodyLarge(),
               textAlign: TextAlign.center,
             ),
             const SizedBox(
@@ -103,10 +104,7 @@ class _DialogWidget extends StatelessWidget {
                 onPressed: onPressed ?? () => Navigator.pop(context),
                 child: Text(
                   buttonText,
-                  style: Theme.of(context)
-                      .textTheme
-                      .bodySmall
-                      ?.copyWith(color: buttonTextColor),
+                  style: TextStyleManager.bodyLarge(color: buttonTextColor),
                 ),
               ),
             )
