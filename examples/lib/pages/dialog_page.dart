@@ -21,6 +21,7 @@ class DialogPage extends StatelessWidget {
                 onPressed: () {
                   JSInfoDialog(
                     context,
+                    product: Product.app,
                     content: const Icon(
                       Icons.warning,
                       size: 100,
@@ -28,7 +29,6 @@ class DialogPage extends StatelessWidget {
                     ),
                     bodyText: "Hey this is an info dialog example",
                     buttonText: "Close",
-                    buttonColor: Colors.red,
                   ).show();
                 },
                 text: "Info Dialog",
@@ -37,6 +37,7 @@ class DialogPage extends StatelessWidget {
                 onPressed: () {
                   JSConfirmDialog(
                     context,
+                    product: Product.app,
                     content: const Icon(
                       Icons.warning,
                       size: 100,
@@ -45,9 +46,6 @@ class DialogPage extends StatelessWidget {
                     bodyText: "Hey this is a confirmation dialog example",
                     outlinedButtonText: "Close",
                     buttonText: "Ok",
-                    buttonColor: Colors.red,
-                    outlinedButtonTextColor: Colors.red,
-                    outlinedButtonColor: Colors.brown,
                   ).show();
                 },
                 text: "Confirmation Dialog",

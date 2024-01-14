@@ -1,18 +1,21 @@
 import 'package:flutter/material.dart';
 
+import '../core/color_manager.dart';
+import '../core/enum.dart';
 import '../core/text_style_manager.dart';
 import '/anims/animation.dart';
 import '/dialogs/js_dialog.dart';
 
 class JSConfirmDialog extends JSDialog {
+  final Product? product;
   final Widget content;
   final String bodyText;
   final String buttonText;
-  final Color buttonTextColor;
-  final Color buttonColor;
-  final Color outlinedButtonColor;
+  final Color? buttonTextColor;
+  final Color? buttonColor;
+  final Color? outlinedButtonTextColor;
+  final Color? outlinedButtonColor;
   final String outlinedButtonText;
-  final Color outlinedButtonTextColor;
   final EdgeInsets? padding;
   final Function()? onPressed;
   final Function()? onOutlinedButtonPressed;
@@ -25,18 +28,20 @@ class JSConfirmDialog extends JSDialog {
     required this.bodyText,
     required this.buttonText,
     required this.outlinedButtonText,
+    this.product,
     this.padding,
     this.onPressed,
     this.onOutlinedButtonPressed,
-    this.buttonTextColor = Colors.white,
-    this.outlinedButtonTextColor = Colors.red,
-    this.buttonColor = Colors.red,
-    this.outlinedButtonColor = Colors.red,
+    this.buttonTextColor,
+    this.outlinedButtonTextColor,
+    this.buttonColor,
+    this.outlinedButtonColor,
   }) : super(context, animType: animType);
 
   @override
   Widget buildDialog() {
     return _DialogWidget(
+      product: product,
       content: content,
       padding: padding,
       onPressed: onPressed,
@@ -53,19 +58,21 @@ class JSConfirmDialog extends JSDialog {
 }
 
 class _DialogWidget extends StatelessWidget {
+  final Product? product;
   final EdgeInsets? padding;
   final Function()? onPressed;
   final Function()? onOutlinedButtonPressed;
   final Widget content;
   final String buttonText;
-  final Color buttonTextColor;
-  final Color outlinedButtonColor;
-  final Color outlinedButtonTextColor;
+  final Color? buttonTextColor;
+  final Color? outlinedButtonColor;
+  final Color? outlinedButtonTextColor;
+  final Color? buttonColor;
   final String outlinedButtonText;
   final String bodyText;
 
-  final Color buttonColor;
   const _DialogWidget({
+    this.product,
     this.padding,
     this.onPressed,
     this.onOutlinedButtonPressed,
@@ -73,11 +80,22 @@ class _DialogWidget extends StatelessWidget {
     required this.bodyText,
     required this.buttonText,
     required this.outlinedButtonText,
-    required this.buttonColor,
-    required this.outlinedButtonColor,
-    required this.buttonTextColor,
-    required this.outlinedButtonTextColor,
+    this.buttonColor,
+    this.outlinedButtonColor,
+    this.buttonTextColor,
+    this.outlinedButtonTextColor,
   });
+
+  Color getPrimaryColor() {
+    switch (product) {
+      case Product.app:
+        return ColorManager.primaryPink700;
+      case Product.partners:
+        return ColorManager.primaryBlue700;
+      default:
+        return Colors.red;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -111,12 +129,14 @@ class _DialogWidget extends StatelessWidget {
               width: double.infinity,
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: buttonColor,
+                  backgroundColor: buttonColor ?? getPrimaryColor(),
                 ),
                 onPressed: onPressed ?? () => Navigator.pop(context),
                 child: Text(
                   buttonText,
-                  style: TextStyleManager.bodyLarge(color: buttonTextColor),
+                  style: TextStyleManager.bodyLarge(
+                    color: buttonTextColor ?? Colors.white,
+                  ),
                 ),
               ),
             ),
@@ -131,7 +151,7 @@ class _DialogWidget extends StatelessWidget {
                   backgroundColor: Colors.white,
                   side: BorderSide(
                     width: 1.0,
-                    color: outlinedButtonColor,
+                    color: outlinedButtonColor ?? getPrimaryColor(),
                   ),
                 ),
                 onPressed:
@@ -139,7 +159,8 @@ class _DialogWidget extends StatelessWidget {
                 child: Text(
                   outlinedButtonText,
                   style: TextStyleManager.bodyLarge(
-                      color: outlinedButtonTextColor),
+                    color: outlinedButtonTextColor ?? getPrimaryColor(),
+                  ),
                 ),
               ),
             ),

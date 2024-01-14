@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:mobile_common_widgets/core/color_manager.dart';
+import 'package:mobile_common_widgets/core/enum.dart';
 import '../core/text_style_manager.dart';
 import '/anims/animation.dart';
 import '/dialogs/js_dialog.dart';
 
 class JSInfoDialog extends JSDialog {
+  final Product? product;
   final Widget content;
   final String bodyText;
   final String buttonText;
-  final Color buttonColor;
-  final Color buttonTextColor;
+  final Color? buttonColor;
+  final Color? buttonTextColor;
   final EdgeInsets? padding;
   final Function()? onPressed;
 
@@ -22,10 +25,11 @@ class JSInfoDialog extends JSDialog {
     required this.content,
     required this.bodyText,
     required this.buttonText,
+    this.product,
     this.padding,
     this.onPressed,
-    this.buttonColor = Colors.red,
-    this.buttonTextColor = Colors.white,
+    this.buttonColor,
+    this.buttonTextColor,
   }) : super(
           context,
           barrierDismissible: barrierDismissible,
@@ -44,27 +48,41 @@ class JSInfoDialog extends JSDialog {
       buttonText: buttonText,
       buttonColor: buttonColor,
       buttonTextColor: buttonTextColor,
+      product: product,
     );
   }
 }
 
 class _DialogWidget extends StatelessWidget {
+  final Product? product;
   final EdgeInsets? padding;
   final Function()? onPressed;
   final Widget content;
   final String buttonText;
   final String bodyText;
-  final Color buttonColor;
-  final Color buttonTextColor;
+  final Color? buttonColor;
+  final Color? buttonTextColor;
   const _DialogWidget({
     this.padding,
     this.onPressed,
+    this.product,
     required this.content,
     required this.bodyText,
     required this.buttonText,
     required this.buttonColor,
     required this.buttonTextColor,
   });
+
+  Color getButtonColor() {
+    switch (product) {
+      case Product.app:
+        return ColorManager.primaryPink700;
+      case Product.partners:
+        return ColorManager.primaryBlue700;
+      default:
+        return Colors.red;
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -99,12 +117,14 @@ class _DialogWidget extends StatelessWidget {
               height: 41,
               child: ElevatedButton(
                 style: ElevatedButton.styleFrom(
-                  backgroundColor: buttonColor,
+                  backgroundColor: buttonColor ?? getButtonColor(),
                 ),
                 onPressed: onPressed ?? () => Navigator.pop(context),
                 child: Text(
                   buttonText,
-                  style: TextStyleManager.bodyLarge(color: buttonTextColor),
+                  style: TextStyleManager.bodyLarge(
+                    color: buttonTextColor ?? Colors.white,
+                  ),
                 ),
               ),
             )
