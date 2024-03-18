@@ -16,6 +16,8 @@ class JSSignInBottomSheet extends StatelessWidget {
   final Function() onSignInGmailPressed;
   final Function() onSignInFacebookPressed;
   final Function() onSignInApplePressed;
+  final bool isShowTermsAndConditions;
+  final Function()? onTermsAndConditionsPressed;
 
   /// ![](https://github-production-user-asset-6210df.s3.amazonaws.com/58515206/289551644-1358e1d3-9e38-4fa9-8a69-0b6ded8a6b73.png?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=AKIAIWNJYAX4CSVEH53A%2F20231211%2Fus-east-1%2Fs3%2Faws4_request&X-Amz-Date=20231211T134412Z&X-Amz-Expires=300&X-Amz-Signature=bb9fd8f7ae78e2c2bc0e676cdcf15c4e091d9b0e87770f92d10ee8abef4ca553&X-Amz-SignedHeaders=host&actor_id=58515206&key_id=0&repo_id=658545639)
   const JSSignInBottomSheet({
@@ -26,6 +28,8 @@ class JSSignInBottomSheet extends StatelessWidget {
     required this.onSignInGmailPressed,
     required this.onSignInFacebookPressed,
     required this.onSignInApplePressed,
+    this.isShowTermsAndConditions = false,
+    this.onTermsAndConditionsPressed,
   });
 
   @override
@@ -192,6 +196,38 @@ class JSSignInBottomSheet extends StatelessWidget {
                 ),
             ],
           ),
+          if (isShowTermsAndConditions)
+            Padding(
+              padding: const EdgeInsets.only(top: 20.0),
+              child: GestureDetector(
+                onTap: onTermsAndConditionsPressed,
+                child: RichText(
+                  textAlign: TextAlign.center,
+                  text: TextSpan(
+                    text: ModalBottomSheetHelpers.getByClickSignUpText(lang),
+                    style: TextStyleManager.caption1(),
+                    children: [
+                      TextSpan(
+                        text: ' ${ModalBottomSheetHelpers.getTNCText(lang)}',
+                        style: TextStyleManager.caption1().copyWith(
+                          color: ColorManager.primaryDarkBlue,
+                        ),
+                      ),
+                      TextSpan(
+                        text: ' ${ModalBottomSheetHelpers.getAndText(lang)}',
+                        style: TextStyleManager.caption1(),
+                      ),
+                      TextSpan(
+                        text: ' ${ModalBottomSheetHelpers.getPPText(lang)}',
+                        style: TextStyleManager.caption1().copyWith(
+                          color: ColorManager.primaryDarkBlue,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
           const SizedBox(
             height: 20.0,
           ),

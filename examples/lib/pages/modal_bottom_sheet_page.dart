@@ -101,6 +101,7 @@ class ModalBottomSheetPage extends StatelessWidget {
                         onSignInGmailPressed: () {},
                         onSignInFacebookPressed: () {},
                         onSignInApplePressed: () {},
+                        isShowTermsAndConditions: true,
                       );
                     },
                   );
