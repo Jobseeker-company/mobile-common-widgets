@@ -84,6 +84,7 @@ class JSSignInBottomSheet extends StatelessWidget {
               style: TextStyleManager.hierarchy2(color: ColorManager.grey),
             ),
           ),
+          // Adding git commit
           const SizedBox(height: 30),
           SizedBox(
             width: double.infinity,
