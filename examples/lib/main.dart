@@ -1,7 +1,10 @@
 import 'package:examples/pages/list_tile_page.dart';
 import 'package:examples/pages/modal_bottom_sheet_page.dart';
+import 'package:examples/pages/others_page.dart';
 import 'package:examples/widgets/custom_button.dart';
 import 'package:flutter/material.dart';
+import 'package:mobile_common_widgets/core/color_manager.dart';
+import 'package:mobile_common_widgets/core/text_style_manager.dart';
 import 'pages/dialog_page.dart';
 
 void main() {
@@ -21,10 +24,18 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         elevatedButtonTheme: ElevatedButtonThemeData(
           style: ElevatedButton.styleFrom(
-            backgroundColor: const Color(0xFFE4007E),
+            backgroundColor: ColorManager.primaryPink700,
             shape: RoundedRectangleBorder(
               borderRadius: BorderRadius.circular(10),
             ),
+          ),
+        ),
+        appBarTheme: AppBarTheme(
+          color: Colors.white,
+          elevation: 0.0,
+          iconTheme: const IconThemeData(color: Colors.black),
+          titleTextStyle: TextStyleManager.mainText(
+            color: Colors.black,
           ),
         ),
         textTheme: const TextTheme(
@@ -72,7 +83,13 @@ class _MyHomePageState extends State<MyHomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        backgroundColor: ColorManager.primaryDarkPink,
+        title: Text(
+          widget.title,
+          style: const TextStyle(
+            color: Colors.white,
+          ),
+        ),
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
@@ -144,7 +161,14 @@ class _MyHomePageState extends State<MyHomePage> {
                 text: "Card",
               ),
               CustomButton(
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const OthersPage(),
+                    ),
+                  );
+                },
                 text: "Others",
               ),
             ],
