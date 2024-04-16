@@ -1,9 +1,8 @@
 import 'dart:developer';
 
 import 'package:flutter/material.dart';
-import 'package:mobile_common_widgets/core/enum.dart';
 import 'package:mobile_common_widgets/core/input_decoration_manager.dart';
-import 'package:mobile_common_widgets/others/location_page.dart';
+import 'package:mobile_common_widgets/mobile_common_widgets.dart';
 
 class OthersPage extends StatelessWidget {
   const OthersPage({super.key});

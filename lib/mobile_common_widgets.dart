@@ -8,3 +8,4 @@ export 'modal_bottom_sheet/saved_account_item.dart';
 export 'dialogs/js_info_dialog.dart';
 export 'dialogs/js_confirm_dialog.dart';
 export 'core/enum.dart';
+export 'others/others.dart';
