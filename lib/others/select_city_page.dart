@@ -1,22 +1,25 @@
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
 import 'package:mobile_common_widgets/core/color_manager.dart';
+import 'package:mobile_common_widgets/core/debouncer.dart';
 import 'package:mobile_common_widgets/others/data/master_data_response.dart';
 
-import '../buttons/js_default_color_button.dart';
 import '../core/enum.dart';
 import '../core/input_decoration_manager.dart';
 import '../core/text_style_manager.dart';
+import 'dart:async';
+
+import 'error_widget.dart';
 
 class SelectCityPage extends StatefulWidget {
   final String locale;
   final Product product;
-  final String oid;
+  final String province;
 
   const SelectCityPage({
     this.locale = 'en',
     required this.product,
-    required this.oid,
+    required this.province,
     super.key,
   });
 
@@ -31,6 +34,7 @@ class _SelectCityPageState extends State<SelectCityPage> {
   ));
   final ValueNotifier<String> keyword = ValueNotifier('');
   int refreshCounter = 0;
+  final debouncer = Debouncer(milliseconds: 500);
 
   @override
   void initState() {
@@ -39,23 +43,19 @@ class _SelectCityPageState extends State<SelectCityPage> {
 
   void refresh() {
     setState(() {
-      refreshCounter++; // Increment to trigger a FutureBuilder rebuild
+      refreshCounter++;
     });
   }
 
   // Function to get nearby nodes by coordinates and radius given. Will throw DioExeption when error.
   Future<MasterDataResponse> getCity(String keyword) async {
     const path = 'https://master.api-jobseeker.site/area/city';
-    print("keyword = $keyword, oid = ${widget.oid}");
-    final queryParam = keyword != ''
-        ? {'q': keyword, 'province': widget.oid}
-        : {'province': widget.oid};
+
     final response = await dio.get(
       path,
-      queryParameters: queryParam,
+      queryParameters: {'q': keyword, 'province': widget.province},
     );
     if (response.statusCode == 200) {
-      print("response = ${response.data}");
       return MasterDataResponse.fromJson(response.data);
     } else {
       throw DioException(
@@ -76,7 +76,7 @@ class _SelectCityPageState extends State<SelectCityPage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              "Choose your City",
+              (widget.locale == "en") ? "Choose your City" : "Pilih kota",
               style: TextStyleManager.title3(
                 fontWeight: FontWeight.w600,
                 height: 28 / 18,
@@ -87,18 +87,20 @@ class _SelectCityPageState extends State<SelectCityPage> {
             ),
             TextField(
               onChanged: (value) {
-                keyword.value = value;
+                debouncer.run(() {
+                  keyword.value = value;
+                });
               },
               decoration: (widget.product == Product.app)
                   ? InputDecorationManager.appStyle.copyWith(
-                      hintText: "City",
+                      hintText: (widget.locale == "en") ? "City" : "Kota",
                       prefixIcon: Icon(
                         Icons.search,
                         color: ColorManager.disableAndConstrast,
                       ),
                     )
                   : InputDecorationManager.partnerStyle.copyWith(
-                      hintText: "City",
+                      hintText: (widget.locale == "en") ? "City" : "Kota",
                       prefixIcon: Icon(
                         Icons.search,
                         color: ColorManager.disableAndConstrast,
@@ -139,14 +141,17 @@ class _SelectCityPageState extends State<SelectCityPage> {
                           );
                         }
                         if (snapshot.hasError) {
-                          return _ErrorWidget(
+                          return CustomErrorWidget(
                             errorMessage: snapshot.error.toString(),
                             onPressed: refresh,
+                            locale: widget.locale,
                           );
                         }
                         return Center(
                           child: CircularProgressIndicator(
-                            color: ColorManager.primaryPink700,
+                            color: (widget.product == Product.app)
+                                ? ColorManager.primaryPink700
+                                : ColorManager.primaryBlue700,
                           ),
                         );
                       },
@@ -156,58 +161,6 @@ class _SelectCityPageState extends State<SelectCityPage> {
           ],
         ),
       ),
-    );
-  }
-}
-
-class _ErrorWidget extends StatelessWidget {
-  final Function() onPressed;
-  final String errorMessage;
-  const _ErrorWidget({
-    Key? key,
-    required this.errorMessage,
-    required this.onPressed,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        Icon(
-          Icons.warning_rounded,
-          size: 125,
-          color: ColorManager.primaryPink700,
-        ),
-        const SizedBox(height: 20),
-        Text(
-          "The server is crashing!",
-          style: TextStyleManager.bodyLarge(
-            fontWeight: FontWeight.w700,
-          ),
-        ),
-        const SizedBox(height: 24),
-        SizedBox(
-          width: 300,
-          child: JSDefaultColorButton(
-            onPressed: onPressed,
-            text: "Refresh",
-          ),
-        ),
-        const SizedBox(
-          height: 16.0,
-        ),
-        Text(
-          errorMessage,
-          maxLines: 2,
-          style: TextStyleManager.caption2(
-            color: ColorManager.disableAndConstrast,
-          ),
-          overflow: TextOverflow.ellipsis,
-          textAlign: TextAlign.center,
-        ),
-      ],
     );
   }
 }

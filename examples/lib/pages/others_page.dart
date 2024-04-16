@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:examples/widgets/custom_button.dart';
 import 'package:mobile_common_widgets/core/enum.dart';
@@ -23,8 +25,16 @@ class OthersPage extends StatelessWidget {
                   Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (context) =>
-                          const LocationPage(product: Product.partners),
+                      builder: (context) => LocationPage(
+                        product: Product.partners,
+                        locale: 'id',
+                        provinceResult: (value) {
+                          log("provinceResult = $value");
+                        },
+                        cityResult: (value) {
+                          log("cityResult = $value");
+                        },
+                      ),
                     ),
                   );
                 },

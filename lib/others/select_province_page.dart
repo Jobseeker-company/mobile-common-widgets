@@ -4,13 +4,16 @@ import 'package:mobile_common_widgets/core/color_manager.dart';
 import 'package:mobile_common_widgets/others/data/master_data_response.dart';
 
 import '../buttons/js_default_color_button.dart';
+import '../core/debouncer.dart';
 import '../core/enum.dart';
 import '../core/input_decoration_manager.dart';
 import '../core/text_style_manager.dart';
+import 'error_widget.dart';
 
 class SelectProvincePage extends StatefulWidget {
   final String locale;
   final Product product;
+
   const SelectProvincePage({
     this.locale = 'en',
     required this.product,
@@ -27,6 +30,7 @@ class _SelectProvincePageState extends State<SelectProvincePage> {
     receiveTimeout: const Duration(milliseconds: (40 * 1000)),
   ));
   final ValueNotifier<String> keyword = ValueNotifier('');
+  final debouncer = Debouncer(milliseconds: 500);
   int refreshCounter = 0;
 
   @override
@@ -71,7 +75,9 @@ class _SelectProvincePageState extends State<SelectProvincePage> {
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
             Text(
-              "Choose your province",
+              (widget.locale == "en")
+                  ? "Choose your province"
+                  : "Pilih provinsi",
               style: TextStyleManager.title3(
                 fontWeight: FontWeight.w600,
                 height: 28 / 18,
@@ -82,18 +88,22 @@ class _SelectProvincePageState extends State<SelectProvincePage> {
             ),
             TextField(
               onChanged: (value) {
-                keyword.value = value;
+                debouncer.run(() {
+                  keyword.value = value;
+                });
               },
               decoration: (widget.product == Product.app)
                   ? InputDecorationManager.appStyle.copyWith(
-                      hintText: "Province",
+                      hintText:
+                          (widget.locale == "en") ? "Province" : "Provinsi",
                       prefixIcon: Icon(
                         Icons.search,
                         color: ColorManager.disableAndConstrast,
                       ),
                     )
                   : InputDecorationManager.partnerStyle.copyWith(
-                      hintText: "Province",
+                      hintText:
+                          (widget.locale == "en") ? "Province" : "Provinsi",
                       prefixIcon: Icon(
                         Icons.search,
                         color: ColorManager.disableAndConstrast,
@@ -134,14 +144,17 @@ class _SelectProvincePageState extends State<SelectProvincePage> {
                           );
                         }
                         if (snapshot.hasError) {
-                          return _ErrorWidget(
+                          return CustomErrorWidget(
                             errorMessage: snapshot.error.toString(),
                             onPressed: refresh,
+                            locale: widget.locale,
                           );
                         }
                         return Center(
                           child: CircularProgressIndicator(
-                            color: ColorManager.primaryPink700,
+                            color: (widget.product == Product.app)
+                                ? ColorManager.primaryPink700
+                                : ColorManager.primaryBlue700,
                           ),
                         );
                       },
@@ -151,58 +164,6 @@ class _SelectProvincePageState extends State<SelectProvincePage> {
           ],
         ),
       ),
-    );
-  }
-}
-
-class _ErrorWidget extends StatelessWidget {
-  final Function() onPressed;
-  final String errorMessage;
-  const _ErrorWidget({
-    Key? key,
-    required this.errorMessage,
-    required this.onPressed,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: [
-        Icon(
-          Icons.warning_rounded,
-          size: 125,
-          color: ColorManager.primaryPink700,
-        ),
-        const SizedBox(height: 20),
-        Text(
-          "The server is crashing!",
-          style: TextStyleManager.bodyLarge(
-            fontWeight: FontWeight.w700,
-          ),
-        ),
-        const SizedBox(height: 24),
-        SizedBox(
-          width: 300,
-          child: JSDefaultColorButton(
-            onPressed: onPressed,
-            text: "Refresh",
-          ),
-        ),
-        const SizedBox(
-          height: 16.0,
-        ),
-        Text(
-          errorMessage,
-          maxLines: 2,
-          style: TextStyleManager.caption2(
-            color: ColorManager.disableAndConstrast,
-          ),
-          overflow: TextOverflow.ellipsis,
-          textAlign: TextAlign.center,
-        ),
-      ],
     );
   }
 }
