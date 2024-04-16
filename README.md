@@ -111,3 +111,24 @@ How to contribute to mobile common widgets :
 <img src="https://github.com/Jobseeker-company/mobile-b2c-app-reborn/assets/58515206/d9fa44ec-e04a-48b8-b081-1d4ccf9a6cff"
  alt="" data-canonical-src="https://github.com/Jobseeker-company/mobile-b2c-app-reborn/assets/58515206/d9fa44ec-e04a-48b8-b081-1d4ccf9a6cff
 " width="300" height="350" />
+
+## Others
+
+### LocationPage
+
+``` 
+arguments:
+* locale : string (en/id)
+* product : enum (Product)
+* onSubmitted : ValueChanged<Map<String?, dynamic>>
+  {
+  province_name: string,
+  province_oid: string,
+  city_name: string,
+  city_oid: string
+  }
+
+```
+
+<img src="https://github.com/Jobseeker-company/mobile-common-widgets/assets/58515206/94ab4c85-f4a6-4b05-b5aa-9b2dce359ab6"
+ alt="" data-canonical-src="https://github.com/Jobseeker-company/mobile-common-widgets/assets/58515206/94ab4c85-f4a6-4b05-b5aa-9b2dce359ab6" width="300" height="650" />
