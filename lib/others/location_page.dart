@@ -11,14 +11,13 @@ import 'select_province_page.dart';
 class LocationPage extends StatefulWidget {
   final String locale;
   final Product product;
-  final ValueChanged<Map<String?, dynamic>> provinceResult;
-  final ValueChanged<Map<String?, dynamic>> cityResult;
+  final ValueChanged<Map<String?, dynamic>> onSubmitted;
 
+  /// ![]("https://github.com/Jobseeker-company/mobile-common-widgets/assets/58515206/94ab4c85-f4a6-4b05-b5aa-9b2dce359ab6")
   const LocationPage({
     this.locale = 'en',
     required this.product,
-    required this.provinceResult,
-    required this.cityResult,
+    required this.onSubmitted,
     super.key,
   });
 
@@ -31,8 +30,7 @@ class _LocationPageState extends State<LocationPage> {
   final ValueNotifier<MasterDataItem?> city = ValueNotifier(null);
   final TextEditingController provinceController = TextEditingController();
   final TextEditingController cityController = TextEditingController();
-  final Map<String?, dynamic> _provinceResult = {};
-  final Map<String?, dynamic> _cityResult = {};
+  final Map<String?, dynamic> _result = {};
 
   @override
   void dispose() {
@@ -45,9 +43,9 @@ class _LocationPageState extends State<LocationPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text(
-          "Fill your location",
-          style: TextStyle(color: Colors.black),
+        title: Text(
+          (widget.locale == "en") ? "Fill your location" : "Masukkan alamat",
+          style: const TextStyle(color: Colors.black),
         ),
       ),
       body: Padding(
@@ -93,9 +91,12 @@ class _LocationPageState extends State<LocationPage> {
                   province.value = result;
                   city.value = null;
                   cityController.clear();
-                  _cityResult.clear();
+
                   provinceController.text = result.name ?? "";
-                  _provinceResult.addAll(result.toJson());
+                  _result.addAll({
+                    'province_name': result.name,
+                    'province_oid': result.oid
+                  });
                 }
               },
               readOnly: true,
@@ -149,7 +150,8 @@ class _LocationPageState extends State<LocationPage> {
                       if (result != null) {
                         city.value = result;
                         cityController.text = result.name ?? "";
-                        _cityResult.addAll(result.toJson());
+                        _result.addAll(
+                            {'city_name': result.name, 'city_oid': result.oid});
                       }
                     },
                     readOnly: true,
@@ -172,9 +174,10 @@ class _LocationPageState extends State<LocationPage> {
                             : ColorManager.disableAndConstrast,
                       ),
                       onPressed: () {
-                        widget.provinceResult(_provinceResult);
-                        widget.cityResult(_cityResult);
-                        Navigator.pop(context);
+                        if (value != null) {
+                          widget.onSubmitted(_result);
+                          Navigator.pop(context);
+                        }
                       },
                       child: Text(
                         (widget.locale == "en") ? "Save" : "Simpan",
