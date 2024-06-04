@@ -11,6 +11,8 @@ import 'select_province_page.dart';
 class LocationPage extends StatefulWidget {
   final String locale;
   final Product product;
+  final String? initialProvice;
+  final String? initialCity;
   final ValueChanged<Map<String?, dynamic>> onSubmitted;
 
   /// ![]("https://github.com/Jobseeker-company/mobile-common-widgets/assets/58515206/94ab4c85-f4a6-4b05-b5aa-9b2dce359ab6")
@@ -19,6 +21,8 @@ class LocationPage extends StatefulWidget {
     required this.product,
     required this.onSubmitted,
     super.key,
+    this.initialProvice,
+    this.initialCity,
   });
 
   @override
@@ -31,6 +35,16 @@ class _LocationPageState extends State<LocationPage> {
   final TextEditingController provinceController = TextEditingController();
   final TextEditingController cityController = TextEditingController();
   final Map<String?, dynamic> _result = {};
+
+  @override
+  void initState() {
+    super.initState();
+  }
+
+  void initializeValue() {
+    provinceController.text = widget.initialProvice ?? '';
+    cityController.text = widget.initialCity ?? '';
+  }
 
   @override
   void dispose() {
