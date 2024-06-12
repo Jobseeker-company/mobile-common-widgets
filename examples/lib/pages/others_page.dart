@@ -32,9 +32,18 @@ class OthersPage extends StatelessWidget {
                       builder: (context) => LocationPage(
                         product: Product.app,
                         locale: 'en',
+                        isCityRequired: false,
+                        // initialProvice: const MasterDataItem(
+                        //   oid: "656ed41f1f755e0529b99ec5",
+                        //   name: "Bali",
+                        // ),
+                        // initialCity: const MasterDataItem(
+                        //   oid: "657a703134310b49eb736af4",
+                        //   name: "Badung",
+                        // ),
                         onSubmitted: (value) {
                           addressController.text =
-                              '${value['province_name']}, ${value['city_name']}';
+                              '${value['province_name']}, ${value['city_name'] ?? ""}';
                           log("provinceResult = $value");
                         },
                       ),

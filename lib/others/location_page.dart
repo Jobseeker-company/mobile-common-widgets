@@ -11,8 +11,9 @@ import 'select_province_page.dart';
 class LocationPage extends StatefulWidget {
   final String locale;
   final Product product;
-  final String? initialProvice;
-  final String? initialCity;
+  final MasterDataItem? initialProvice;
+  final MasterDataItem? initialCity;
+  final bool isCityRequired;
   final ValueChanged<Map<String?, dynamic>> onSubmitted;
 
   /// ![]("https://github.com/Jobseeker-company/mobile-common-widgets/assets/58515206/94ab4c85-f4a6-4b05-b5aa-9b2dce359ab6")
@@ -23,6 +24,7 @@ class LocationPage extends StatefulWidget {
     super.key,
     this.initialProvice,
     this.initialCity,
+    this.isCityRequired = true,
   });
 
   @override
@@ -43,8 +45,25 @@ class _LocationPageState extends State<LocationPage> {
   }
 
   void initializeValue() {
-    provinceController.text = widget.initialProvice ?? '';
-    cityController.text = widget.initialCity ?? '';
+    provinceController.text = widget.initialProvice?.name ?? '';
+    province.value = widget.initialProvice;
+
+    if (widget.initialProvice != null) {
+      _result.addAll({
+        'province_name': widget.initialProvice!.name,
+        'province_oid': widget.initialProvice!.oid,
+      });
+    }
+
+    cityController.text = widget.initialCity?.name ?? '';
+    city.value = widget.initialCity;
+
+    if (widget.initialCity != null) {
+      _result.addAll({
+        'city_name': widget.initialCity!.name,
+        'city_oid': widget.initialCity!.oid,
+      });
+    }
   }
 
   @override
@@ -138,7 +157,7 @@ class _LocationPageState extends State<LocationPage> {
                 builder: (context, value, child) {
                   return TextFormField(
                     controller: cityController,
-                    enabled: value != null,
+                    enabled: isCityEnable(value),
                     decoration: (widget.product == Product.app)
                         ? InputDecorationManager.appStyle.copyWith(
                             hintText: (widget.locale == "en")
@@ -179,29 +198,33 @@ class _LocationPageState extends State<LocationPage> {
             const Spacer(),
             ValueListenableBuilder(
                 valueListenable: city,
-                builder: (context, value, child) {
-                  return SizedBox(
-                    width: double.infinity,
-                    child: ElevatedButton(
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: value != null
-                            ? null
-                            : ColorManager.disableAndConstrast,
-                      ),
-                      onPressed: () {
-                        if (value != null) {
-                          widget.onSubmitted(_result);
-                          Navigator.pop(context);
-                        }
-                      },
-                      child: Text(
-                        (widget.locale == "en") ? "Save" : "Simpan",
-                        style: TextStyleManager.bodyLarge(
-                          color: Colors.white,
-                        ),
-                      ),
-                    ),
-                  );
+                builder: (context, _, ___) {
+                  return ValueListenableBuilder(
+                      valueListenable: province,
+                      builder: (context, _, ___) {
+                        return SizedBox(
+                          width: double.infinity,
+                          child: ElevatedButton(
+                            style: ElevatedButton.styleFrom(
+                              backgroundColor: isRequestValid()
+                                  ? null
+                                  : ColorManager.disableAndConstrast,
+                            ),
+                            onPressed: () {
+                              if (isRequestValid()) {
+                                widget.onSubmitted(_result);
+                                Navigator.pop(context);
+                              }
+                            },
+                            child: Text(
+                              (widget.locale == "en") ? "Save" : "Simpan",
+                              style: TextStyleManager.bodyLarge(
+                                color: Colors.white,
+                              ),
+                            ),
+                          ),
+                        );
+                      });
                 }),
             const SizedBox(
               height: 20.0,
@@ -210,5 +233,27 @@ class _LocationPageState extends State<LocationPage> {
         ),
       ),
     );
+  }
+
+  bool isRequestValid() {
+    // logic if textfield city and province is required
+    if (widget.isCityRequired) {
+      if (city.value != null && province.value != null) {
+        return true;
+      }
+      return false;
+    }
+
+    // logic if textfield city is not required
+    if (province.value != null) {
+      return true;
+    }
+    return false;
+  }
+
+  bool isCityEnable(MasterDataItem? value) {
+    final cityIsNotEmpty = cityController.text.isNotEmpty;
+    if (value != null || cityIsNotEmpty) return true;
+    return false;
   }
 }
