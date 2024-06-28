@@ -92,6 +92,10 @@ class _DialogWidget extends StatelessWidget {
         borderRadius: BorderRadius.circular(20.0),
       ),
       child: Container(
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(12),
+        ),
         padding: const EdgeInsets.symmetric(horizontal: 24, vertical: 24),
         width: double.infinity,
         child: Column(
